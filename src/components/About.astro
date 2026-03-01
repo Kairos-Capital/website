@@ -1,0 +1,32 @@
+---
+interface AboutData {
+	label?: string;
+	headline?: string;
+	paragraphs?: string[];
+}
+const defaultData: AboutData = {
+	label: "Who We Are",
+	headline: "A different kind of\n*acquirer.*",
+	paragraphs: [
+		"Most buyers see businesses as assets to extract value from. We see them differently — as communities of people, relationships built over years, and reputations earned through hard work.",
+		"When we acquire a business, we're making a long-term commitment. To the employees who depend on it. To the customers who trust it. To the founder who built it. We don't flip. We steward.",
+		"Kairos is built on the belief that the right moment — and the right partner — can turn a transition into a legacy.",
+	],
+};
+const data: AboutData = { ...defaultData, ...Astro.props.data };
+const paragraphs = (data.paragraphs && data.paragraphs.length > 0) ? data.paragraphs : defaultData.paragraphs!;
+const headlineHtml = (data.headline || defaultData.headline!).replace(/\*([^*]+)\*/g, "<em>$1</em>").replace(/\n/g, "<br />");
+---
+<section class="about" id="about">
+	<div class="section-inner">
+		<div class="about-grid reveal">
+			<div>
+				<p class="section-label">{data.label}</p>
+				<h2 class="about-headline" set:html={headlineHtml} />
+			</div>
+			<div class="about-body">
+				{paragraphs.map((p) => <p>{p}</p>)}
+			</div>
+		</div>
+	</div>
+</section>

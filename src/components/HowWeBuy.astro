@@ -1,0 +1,47 @@
+---
+interface Step {
+	number?: string;
+	title?: string;
+	body?: string;
+}
+interface HowData {
+	label?: string;
+	headline?: string;
+	description?: string;
+	steps?: Step[];
+}
+const defaultData: HowData = {
+	label: "Our Process",
+	headline: "A clear path from\nconversation to close.",
+	description: "We've streamlined the acquisition process to be transparent, respectful of your time, and free from unnecessary complexity. Most deals close in 60 days or less.",
+	steps: [
+		{ number: "01", title: "Conversation", body: "A candid, no-pressure call to understand your business, your goals, and whether there's a fit. No NDA required to start." },
+		{ number: "02", title: "Letter of Intent", body: "If it makes sense on both sides, we move quickly to a clear, fair LOI. No drawn-out negotiations. No surprises." },
+		{ number: "03", title: "Diligence", body: "A focused, respectful review of your financials and operations. We ask for what we need — nothing more." },
+		{ number: "04", title: "Close & Transition", body: "We close, you get paid, and we work together on a thoughtful transition that protects what you've built." },
+	],
+};
+const data: HowData = { ...defaultData, ...Astro.props.data };
+const steps = (data.steps && data.steps.length >= 4) ? data.steps : defaultData.steps!;
+const headlineHtml = (data.headline || defaultData.headline!).replace(/\n/g, "<br />");
+---
+<section class="how" id="how">
+	<div class="section-inner">
+		<div class="how-intro reveal">
+			<div>
+				<p class="section-label">{data.label}</p>
+				<h2 class="how-headline" set:html={headlineHtml} />
+			</div>
+			<p class="how-desc">{data.description}</p>
+		</div>
+		<div class="steps reveal">
+			{steps.slice(0, 4).map((step) => (
+				<div class="step">
+					<div class="step-number">{step.number}</div>
+					<div class="step-title">{step.title}</div>
+					<p class="step-body">{step.body}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

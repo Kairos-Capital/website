@@ -1,0 +1,62 @@
+---
+interface Stat {
+	number?: string;
+	label?: string;
+}
+interface HeroData {
+	eyebrow?: string;
+	headline?: string;
+	sub?: string;
+	primaryButtonText?: string;
+	primaryButtonHref?: string;
+	ghostButtonText?: string;
+	ghostButtonHref?: string;
+	stats?: Stat[];
+}
+const defaultHero: HeroData = {
+	eyebrow: "Business Acquisition",
+	headline: "We buy businesses.\nTo build *legacies*.",
+	sub: "Kairos Capital acquires great businesses from founders ready for their next chapter — and stewards them for the long term.",
+	primaryButtonText: "Sell Your Business",
+	primaryButtonHref: "#contact",
+	ghostButtonText: "How It Works",
+	ghostButtonHref: "#how",
+	stats: [
+		{ number: "10+", label: "Years Combined Experience" },
+		{ number: "$1M–10M", label: "Revenue Sweet Spot" },
+		{ number: "60-day", label: "Average Close Timeline" },
+	],
+};
+const data: HeroData = { ...defaultHero, ...Astro.props.data };
+const stats = (data.stats && data.stats.length >= 3) ? data.stats : defaultHero.stats!;
+// Allow simple italic marker in headline
+const headlineHtml = (data.headline || defaultHero.headline!)
+	.replace(/\*([^*]+)\*/g, "<em>$1</em>")
+	.replace(/\n/g, "<br />");
+---
+<section class="hero" style="padding: 0;">
+	<div class="hero-content">
+		<p class="hero-eyebrow">{data.eyebrow}</p>
+		<h1 class="hero-headline" set:html={headlineHtml} />
+		<p class="hero-sub">{data.sub}</p>
+		<div class="hero-actions">
+			<a href={data.primaryButtonHref || "#contact"} class="btn-primary">{data.primaryButtonText}</a>
+			<a href={data.ghostButtonHref || "#how"} class="btn-ghost">{data.ghostButtonText}</a>
+		</div>
+	</div>
+	<div class="hero-visual">
+		<svg class="hero-mark" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect x="10" y="10" width="180" height="180" stroke="#f4be47" stroke-width="18" fill="none"/>
+			<polygon points="100,25 175,165 25,165" fill="#f4be47"/>
+			<polygon points="100,70 145,155 55,155" fill="#111110"/>
+		</svg>
+	</div>
+	<div class="hero-stat-bar">
+		{stats.slice(0, 3).map((stat) => (
+			<div class="hero-stat">
+				<div class="stat-number">{stat.number}</div>
+				<div class="stat-label">{stat.label}</div>
+			</div>
+		))}
+	</div>
+</section>

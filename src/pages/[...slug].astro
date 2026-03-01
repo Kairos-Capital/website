@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import PageLayout from "../components/PageLayout.astro";
+
+type PageConnectionResult = {
+	data?: {
+		pageConnection?: {
+			edges?: Array<{ node?: { _sys?: { relativePath?: string } } }>;
+		};
+	};
+};
+
+export async function getStaticPaths() {
+	const paths: { params: { slug: string }; props: { relativePath: string; template: string } }[] = [];
+	try {
+		const { client } = await import("../../tina/__generated__/client.js");
+		const q = client?.queries as Record<string, (args?: unknown) => Promise<PageConnectionResult>> | undefined;
+		if (typeof q?.pageConnection === "function") {
+			const result = await q.pageConnection({ first: 100 });
+			const edges = result?.data?.pageConnection?.edges ?? [];
+			for (const edge of edges) {
+				const node = edge?.node;
+				const relativePath = node?._sys?.relativePath ?? "";
+				if (relativePath === "home/home.md") continue;
+				const slug = relativePath.replace(/^[^/]+\//, "").replace(/\.md$/, "");
+				const template = relativePath.startsWith("default/") ? "default" : "";
+				if (slug) paths.push({ params: { slug }, props: { relativePath, template } });
+			}
+		}
+	} catch (_) {}
+	// Fallback when Tina server not running (e.g. static build): discover pages from content
+	if (paths.length === 0) {
+		const pages = import.meta.glob("../../content/pages/default/*.md", { eager: false });
+		for (const key of Object.keys(pages)) {
+			const match = key.match(/default\/(.+)\.md$/);
+			if (match) paths.push({
+				params: { slug: match[1] },
+				props: { relativePath: `default/${match[1]}.md`, template: "default" },
+			});
+		}
+	}
+	return paths;
+}
+
+interface Props {
+	slug: string;
+	relativePath: string;
+	template: string;
+}
+const { slug, relativePath, template } = Astro.props;
+let title = slug;
+let body = "";
+
+try {
+	const { client } = await import("../../tina/__generated__/client.js");
+	const queries = client?.queries as Record<string, (args: { relativePath: string }) => Promise<{ data?: { page?: { title?: string; body?: unknown } } }>> | undefined;
+	if (queries?.page) {
+		const result = await queries.page({ relativePath });
+		const page = result?.data?.page as { title?: string; body?: string } | undefined;
+		if (page) {
+			title = page.title ?? title;
+			body = typeof page.body === "string" ? page.body : "";
+		}
+	}
+} catch (_) {}
+---
+
+<Layout title={`${title} — Kairos Capital`}>
+	<Nav />
+	<main>
+		<PageLayout title={title} body={body} />
+	</main>
+	<Footer />
+</Layout>

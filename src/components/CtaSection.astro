@@ -1,0 +1,26 @@
+---
+interface CtaData {
+	headline?: string;
+	sub?: string;
+	buttonText?: string;
+	contactEmail?: string;
+}
+const defaultData: CtaData = {
+	headline: "Ready to talk about\nyour *next chapter?*",
+	sub: "No pressure. No NDAs to start. Just an honest conversation about your business and what comes next.",
+	buttonText: "Start a Conversation",
+	contactEmail: "hello@kairos.capital",
+};
+const data: CtaData = { ...defaultData, ...Astro.props.data };
+const headlineHtml = (data.headline || defaultData.headline!).replace(/\*([^*]+)\*/g, "<em>$1</em>").replace(/\n/g, "<br />");
+const mailto = data.contactEmail ? `mailto:${data.contactEmail}` : "mailto:hello@kairos.capital";
+---
+<section class="cta-section" id="contact">
+	<div class="section-inner">
+		<div class="reveal">
+			<h2 class="cta-headline" set:html={headlineHtml} />
+			<p class="cta-sub">{data.sub}</p>
+			<a href={mailto} class="btn-primary">{data.buttonText}</a>
+		</div>
+	</div>
+</section>
