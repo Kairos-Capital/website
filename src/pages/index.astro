@@ -8,19 +8,11 @@ import Criteria from "../components/Criteria.astro";
 import Promise from "../components/Promise.astro";
 import CtaSection from "../components/CtaSection.astro";
 import Footer from "../components/Footer.astro";
+import { loadHomePage } from "../lib/loadPageContent";
 
-let homeData: Record<string, unknown> | null = null;
-try {
-	const { client } = await import("../../tina/__generated__/client.js");
-	const queries = client?.queries as Record<string, ((args: { relativePath: string }) => Promise<{ data?: { page?: Record<string, unknown> } }>) | undefined>;
-	if (queries?.page) {
-		const result = await queries.page({ relativePath: "home/home.md" });
-		homeData = result?.data?.page ?? null;
-	}
-} catch (_) {
-	// Tina client not ready or page collection not generated yet; components use defaults
-}
-
+// Load from content files (works in CI where tina/__generated__ is not present).
+// When running locally with Tina, the same files are edited in the admin.
+const homeData = loadHomePage();
 const data = homeData as Record<string, Record<string, unknown>> | null;
 ---
 
