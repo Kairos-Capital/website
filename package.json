@@ -5,10 +5,13 @@
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "npm run build && wrangler dev",
+    "astro": "astro",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.12",
     "astro": "^5.17.1",
     "tinacms": "^3.5.1"
   },
@@ -16,6 +19,7 @@
     "@tinacms/cli": "^2.1.7",
     "@types/node": "^25.3.2",
     "gray-matter": "^4.0.3",
-    "marked": "^15.0.0"
+    "marked": "^15.0.0",
+    "wrangler": "^4.69.0"
   }
 }
