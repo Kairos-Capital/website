@@ -53,6 +53,12 @@ export default defineConfig({
         label: "Pages",
         path: "content/pages",
         format: "md",
+        ui: {
+          router: ({ document }) => {
+            if (document._sys.filename === 'home') return '/'
+            return `/${document._sys.filename}`
+          },
+        },
         templates: [
           {
             name: "home",
