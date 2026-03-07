@@ -1,46 +1,82 @@
-# Astro Starter Kit: Basics
+# Kairos Capital — Marketing Website
 
-```sh
-npm create astro@latest -- --template basics
+Marketing website for Kairos Capital, a business acquisition firm.
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router), static export
+- **CMS**: TinaCMS 3.5.1 with local markdown files
+- **Deployment**: Cloudflare Pages
+- **Styling**: Pure CSS (`app/globals.css`), no Tailwind
+- **Fonts**: Cormorant Garamond, Barlow, Barlow Condensed (Google Fonts)
+
+## Project Structure
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
+website/
+├── app/
+│   ├── layout.tsx          # Root HTML shell, fonts, globals.css
+│   ├── page.tsx            # Home page (Server Component)
+│   ├── [slug]/page.tsx     # Dynamic inner pages
+│   └── globals.css         # All global CSS and CSS variables
+├── components/
+│   ├── HomePageClient.tsx  # Home page client wrapper (useTina)
+│   ├── DefaultPageClient.tsx
+│   ├── Nav.tsx
+│   ├── Hero.tsx
+│   ├── About.tsx
+│   ├── HowWeBuy.tsx
+│   ├── Criteria.tsx
+│   ├── Promise.tsx
+│   ├── CtaSection.tsx
+│   ├── Footer.tsx
+│   ├── PageLayout.tsx
+│   └── ScrollReveal.tsx
+├── content/
+│   └── pages/
+│       ├── home/home.md    # Home page content
+│       └── default/*.md    # Inner page content
+├── lib/
+│   └── loadPageContent.ts  # fs-based content loading
+├── tina/
+│   ├── config.ts           # TinaCMS schema
+│   └── __generated__/      # Generated GraphQL types (committed)
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── out/                    # Static build output (Cloudflare Pages)
+├── next.config.ts
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Commands
 
-## 🧞 Commands
+| Command           | Action                                                  |
+| :---------------- | :------------------------------------------------------ |
+| `npm install`     | Install dependencies                                    |
+| `npm run dev`     | Start dev server with TinaCMS on `localhost:3000`       |
+| `npm run build`   | Build static site to `out/`                             |
+| `npm run preview` | Preview the static build locally via `npx serve out`    |
 
-All commands are run from the root of the project, from a terminal:
+## Local Development
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```sh
+npm install
+npm run dev
+```
 
-## 👀 Want to learn more?
+- Site: `http://localhost:3000`
+- TinaCMS visual editor: `http://localhost:3000/admin/index.html`
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Content changes made via the TinaCMS sidebar are written back to the markdown files in `content/`.
+
+## Deployment
+
+Deployed to **Cloudflare Pages** via static export.
+
+- Build command: `npm run build`
+- Output directory: `out`
+
+After any changes to `tina/config.ts`, restart the dev server to regenerate `tina/__generated__/`, then commit the updated generated files — Cloudflare Pages has no TinaCMS server and cannot generate them at build time.
+
+## Content Editing
+
+All page content lives in `content/pages/` as markdown files with YAML frontmatter. You can edit these directly or use the TinaCMS visual editor for live, click-to-edit updates in the browser.
