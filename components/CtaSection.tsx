@@ -16,6 +16,7 @@ import { tinaField } from 'tinacms/dist/react'
 
 export default function CtaSection({ data, tinaFieldId }: { data?: CtaData; tinaFieldId?: string }) {
   const d: CtaData = { ...defaultData, ...data }
+  const tinaData = data as Record<string, unknown> | undefined
   const headlineHtml = (d.headline || defaultData.headline!)
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
     .replace(/\n/g, '<br />')
@@ -25,9 +26,9 @@ export default function CtaSection({ data, tinaFieldId }: { data?: CtaData; tina
     <section className="cta-section" id="contact" data-tina-field={tinaFieldId}>
       <div className="section-inner">
         <div className="reveal">
-          <h2 className="cta-headline" data-tina-field={data ? tinaField(data, 'headline') : undefined} dangerouslySetInnerHTML={{ __html: headlineHtml }} />
-          <p className="cta-sub" data-tina-field={data ? tinaField(data, 'sub') : undefined}>{d.sub}</p>
-          <a href={mailto} className="btn-primary" data-tina-field={data ? tinaField(data, 'buttonText') : undefined}>
+          <h2 className="cta-headline" data-tina-field={tinaData ? tinaField(tinaData, 'headline') : undefined} dangerouslySetInnerHTML={{ __html: headlineHtml }} />
+          <p className="cta-sub" data-tina-field={tinaData ? tinaField(tinaData, 'sub') : undefined}>{d.sub}</p>
+          <a href={mailto} className="btn-primary" data-tina-field={tinaData ? tinaField(tinaData, 'buttonText') : undefined}>
             {d.buttonText}
           </a>
         </div>

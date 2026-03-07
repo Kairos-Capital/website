@@ -18,6 +18,7 @@ import { tinaField } from 'tinacms/dist/react'
 
 export default function About({ data, tinaFieldId }: { data?: AboutData; tinaFieldId?: string }) {
   const d: AboutData = { ...defaultData, ...data }
+  const tinaData = data as Record<string, unknown> | undefined
   const paragraphs = d.paragraphs && d.paragraphs.length > 0 ? d.paragraphs : defaultData.paragraphs!
   const headlineHtml = (d.headline || defaultData.headline!)
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
@@ -28,10 +29,10 @@ export default function About({ data, tinaFieldId }: { data?: AboutData; tinaFie
       <div className="section-inner">
         <div className="about-grid reveal">
           <div>
-            <p className="section-label" data-tina-field={data ? tinaField(data, 'label') : undefined}>{d.label}</p>
-            <h2 className="about-headline" data-tina-field={data ? tinaField(data, 'headline') : undefined} dangerouslySetInnerHTML={{ __html: headlineHtml }} />
+            <p className="section-label" data-tina-field={tinaData ? tinaField(tinaData, 'label') : undefined}>{d.label}</p>
+            <h2 className="about-headline" data-tina-field={tinaData ? tinaField(tinaData, 'headline') : undefined} dangerouslySetInnerHTML={{ __html: headlineHtml }} />
           </div>
-          <div className="about-body" data-tina-field={data ? tinaField(data, 'paragraphs') : undefined}>
+          <div className="about-body" data-tina-field={tinaData ? tinaField(tinaData, 'paragraphs') : undefined}>
             {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
           </div>
         </div>

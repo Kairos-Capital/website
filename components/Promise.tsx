@@ -18,14 +18,15 @@ import { tinaField } from 'tinacms/dist/react'
 
 export default function Promise({ data, tinaFieldId }: { data?: PromiseData; tinaFieldId?: string }) {
   const d: PromiseData = { ...defaultData, ...data }
+  const tinaData = data as Record<string, unknown> | undefined
   const items = d.items && d.items.length > 0 ? d.items : defaultData.items!
   const headlineHtml = (d.headline || defaultData.headline!).replace(/\n/g, '<br />')
 
   return (
     <section className="promise" style={{ padding: '7rem 3rem' }} data-tina-field={tinaFieldId}>
       <div className="promise-inner reveal">
-        <h2 className="promise-headline" data-tina-field={data ? tinaField(data, 'headline') : undefined} dangerouslySetInnerHTML={{ __html: headlineHtml }} />
-        <ul className="promise-points" data-tina-field={data ? tinaField(data, 'items') : undefined}>
+        <h2 className="promise-headline" data-tina-field={tinaData ? tinaField(tinaData, 'headline') : undefined} dangerouslySetInnerHTML={{ __html: headlineHtml }} />
+        <ul className="promise-points" data-tina-field={tinaData ? tinaField(tinaData, 'items') : undefined}>
           {items.map((item, i) => <li key={i}>{item}</li>)}
         </ul>
       </div>

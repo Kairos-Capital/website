@@ -39,23 +39,24 @@ function parseHeadline(text: string): string {
 
 export default function Hero({ data, tinaFieldId }: { data?: HeroData; tinaFieldId?: string }) {
   const d: HeroData = { ...defaultHero, ...data }
+  const tinaData = data as Record<string, unknown> | undefined
   const stats = d.stats && d.stats.length >= 3 ? d.stats : defaultHero.stats!
 
   return (
     <section className="hero" style={{ padding: 0 }} data-tina-field={tinaFieldId}>
       <div className="hero-content">
-        <p className="hero-eyebrow" data-tina-field={data ? tinaField(data, 'eyebrow') : undefined}>{d.eyebrow}</p>
+        <p className="hero-eyebrow" data-tina-field={tinaData ? tinaField(tinaData, 'eyebrow') : undefined}>{d.eyebrow}</p>
         <h1
           className="hero-headline"
-          data-tina-field={data ? tinaField(data, 'headline') : undefined}
+          data-tina-field={tinaData ? tinaField(tinaData, 'headline') : undefined}
           dangerouslySetInnerHTML={{ __html: parseHeadline(d.headline || defaultHero.headline!) }}
         />
-        <p className="hero-sub" data-tina-field={data ? tinaField(data, 'sub') : undefined}>{d.sub}</p>
+        <p className="hero-sub" data-tina-field={tinaData ? tinaField(tinaData, 'sub') : undefined}>{d.sub}</p>
         <div className="hero-actions">
-          <a href={d.primaryButtonHref || '#contact'} className="btn-primary" data-tina-field={data ? tinaField(data, 'primaryButtonText') : undefined}>
+          <a href={d.primaryButtonHref || '#contact'} className="btn-primary" data-tina-field={tinaData ? tinaField(tinaData, 'primaryButtonText') : undefined}>
             {d.primaryButtonText}
           </a>
-          <a href={d.ghostButtonHref || '#how'} className="btn-ghost" data-tina-field={data ? tinaField(data, 'ghostButtonText') : undefined}>
+          <a href={d.ghostButtonHref || '#how'} className="btn-ghost" data-tina-field={tinaData ? tinaField(tinaData, 'ghostButtonText') : undefined}>
             {d.ghostButtonText}
           </a>
         </div>
@@ -69,7 +70,7 @@ export default function Hero({ data, tinaFieldId }: { data?: HeroData; tinaField
       </div>
       <div className="hero-stat-bar">
         {stats.slice(0, 3).map((stat, i) => (
-          <div className="hero-stat" key={i} data-tina-field={tinaField(stat, 'number')}>
+          <div className="hero-stat" key={i} data-tina-field={tinaField(stat as Record<string, unknown>, 'number')}>
             <div className="stat-number">{stat.number}</div>
             <div className="stat-label">{stat.label}</div>
           </div>

@@ -26,6 +26,7 @@ import { tinaField } from 'tinacms/dist/react'
 
 export default function Criteria({ data, tinaFieldId }: { data?: CriteriaData; tinaFieldId?: string }) {
   const d: CriteriaData = { ...defaultData, ...data }
+  const tinaData = data as Record<string, unknown> | undefined
   const items = d.items && d.items.length > 0 ? d.items : defaultData.items!
   const headlineHtml = (d.headline || defaultData.headline!)
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
@@ -36,16 +37,16 @@ export default function Criteria({ data, tinaFieldId }: { data?: CriteriaData; t
       <div className="section-inner">
         <div className="criteria-grid reveal">
           <div>
-            <p className="section-label" data-tina-field={data ? tinaField(data, 'label') : undefined}>{d.label}</p>
-            <h2 className="criteria-headline" data-tina-field={data ? tinaField(data, 'headline') : undefined} dangerouslySetInnerHTML={{ __html: headlineHtml }} />
+            <p className="section-label" data-tina-field={tinaData ? tinaField(tinaData, 'label') : undefined}>{d.label}</p>
+            <h2 className="criteria-headline" data-tina-field={tinaData ? tinaField(tinaData, 'headline') : undefined} dangerouslySetInnerHTML={{ __html: headlineHtml }} />
           </div>
           <div>
             <div className="criteria-list">
               {items.map((item, i) => (
-                <div className="criteria-item" key={i} data-tina-field={tinaField(item, 'title')}>
+                <div className="criteria-item" key={i} data-tina-field={tinaField(item as Record<string, unknown>, 'title')}>
                   <div className="criteria-icon">◈</div>
-                  <div className="criteria-title" data-tina-field={tinaField(item, 'title')}>{item.title}</div>
-                  <p className="criteria-desc" data-tina-field={tinaField(item, 'description')}>{item.description}</p>
+                  <div className="criteria-title" data-tina-field={tinaField(item as Record<string, unknown>, 'title')}>{item.title}</div>
+                  <p className="criteria-desc" data-tina-field={tinaField(item as Record<string, unknown>, 'description')}>{item.description}</p>
                 </div>
               ))}
             </div>

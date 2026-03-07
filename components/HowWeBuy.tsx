@@ -27,6 +27,7 @@ import { tinaField } from 'tinacms/dist/react'
 
 export default function HowWeBuy({ data, tinaFieldId }: { data?: HowData; tinaFieldId?: string }) {
   const d: HowData = { ...defaultData, ...data }
+  const tinaData = data as Record<string, unknown> | undefined
   const steps = d.steps && d.steps.length >= 4 ? d.steps : defaultData.steps!
   const headlineHtml = (d.headline || defaultData.headline!).replace(/\n/g, '<br />')
 
@@ -35,17 +36,17 @@ export default function HowWeBuy({ data, tinaFieldId }: { data?: HowData; tinaFi
       <div className="section-inner">
         <div className="how-intro reveal">
           <div>
-            <p className="section-label" data-tina-field={data ? tinaField(data, 'label') : undefined}>{d.label}</p>
-            <h2 className="how-headline" data-tina-field={data ? tinaField(data, 'headline') : undefined} dangerouslySetInnerHTML={{ __html: headlineHtml }} />
+            <p className="section-label" data-tina-field={tinaData ? tinaField(tinaData, 'label') : undefined}>{d.label}</p>
+            <h2 className="how-headline" data-tina-field={tinaData ? tinaField(tinaData, 'headline') : undefined} dangerouslySetInnerHTML={{ __html: headlineHtml }} />
           </div>
-          <p className="how-desc" data-tina-field={data ? tinaField(data, 'description') : undefined}>{d.description}</p>
+          <p className="how-desc" data-tina-field={tinaData ? tinaField(tinaData, 'description') : undefined}>{d.description}</p>
         </div>
         <div className="steps reveal">
           {steps.slice(0, 4).map((step, i) => (
-            <div className="step" key={i} data-tina-field={tinaField(step, 'title')}>
+            <div className="step" key={i} data-tina-field={tinaField(step as Record<string, unknown>, 'title')}>
               <div className="step-number">{step.number}</div>
-              <div className="step-title" data-tina-field={tinaField(step, 'title')}>{step.title}</div>
-              <p className="step-body" data-tina-field={tinaField(step, 'body')}>{step.body}</p>
+              <div className="step-title" data-tina-field={tinaField(step as Record<string, unknown>, 'title')}>{step.title}</div>
+              <p className="step-body" data-tina-field={tinaField(step as Record<string, unknown>, 'body')}>{step.body}</p>
             </div>
           ))}
         </div>
