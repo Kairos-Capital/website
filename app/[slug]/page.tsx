@@ -1,8 +1,5 @@
 import { getDefaultPageSlugs, loadDefaultPage } from '../../lib/loadPageContent'
-import Nav from '../../components/Nav'
-import Footer from '../../components/Footer'
-import PageLayout from '../../components/PageLayout'
-import ScrollReveal from '../../components/ScrollReveal'
+import DefaultPageClient from '../../components/DefaultPageClient'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -20,16 +17,17 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function SlugPage({ params }: Props) {
   const { slug } = await params
-  const { title, body } = loadDefaultPage(slug)
 
-  return (
-    <>
-      <Nav />
-      <main>
-        <PageLayout title={title} body={body} />
-      </main>
-      <Footer />
-      <ScrollReveal />
-    </>
-  )
+  try {
+    const { client } = await import('../../tina/__generated__/client')
+    const tinaProps = await client.queries.page({ relativePath: `default/${slug}.md` })
+    return <DefaultPageClient tinaProps={tinaProps} />
+  } catch {
+    const { title, body } = loadDefaultPage(slug)
+    return (
+      <DefaultPageClient
+        tinaProps={{ query: '', variables: {}, data: { page: { title, body } } }}
+      />
+    )
+  }
 }

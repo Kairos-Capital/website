@@ -1,6 +1,6 @@
 'use client'
 
-import { useTina } from 'tinacms/dist/react'
+import { useTina, tinaField } from 'tinacms/dist/react'
 import Nav from './Nav'
 import Hero from './Hero'
 import About from './About'
@@ -25,12 +25,12 @@ export default function HomePageClient({ tinaProps }: HomePageClientProps) {
   return (
     <>
       <Nav />
-      <Hero data={pageData?.hero as never} />
-      <About data={pageData?.about as never} />
-      <HowWeBuy data={pageData?.how as never} />
-      <Criteria data={pageData?.criteria as never} />
-      <Promise data={pageData?.promise as never} />
-      <CtaSection data={pageData?.cta as never} />
+      <Hero data={pageData?.hero as never} tinaFieldId={pageData ? tinaField(pageData, 'hero') : undefined} />
+      <About data={pageData?.about as never} tinaFieldId={pageData ? tinaField(pageData, 'about') : undefined} />
+      <HowWeBuy data={pageData?.how as never} tinaFieldId={pageData ? tinaField(pageData, 'how') : undefined} />
+      <Criteria data={pageData?.criteria as never} tinaFieldId={pageData ? tinaField(pageData, 'criteria') : undefined} />
+      <Promise data={pageData?.promise as never} tinaFieldId={pageData ? tinaField(pageData, 'promise') : undefined} />
+      <CtaSection data={pageData?.cta as never} tinaFieldId={pageData ? tinaField(pageData, 'cta') : undefined} />
       <Footer />
       <ScrollReveal />
     </>

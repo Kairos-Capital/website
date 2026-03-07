@@ -29,30 +29,33 @@ const defaultHero: HeroData = {
   ],
 }
 
+import { tinaField } from 'tinacms/dist/react'
+
 function parseHeadline(text: string): string {
   return text
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
     .replace(/\n/g, '<br />')
 }
 
-export default function Hero({ data }: { data?: HeroData }) {
+export default function Hero({ data, tinaFieldId }: { data?: HeroData; tinaFieldId?: string }) {
   const d: HeroData = { ...defaultHero, ...data }
   const stats = d.stats && d.stats.length >= 3 ? d.stats : defaultHero.stats!
 
   return (
-    <section className="hero" style={{ padding: 0 }}>
+    <section className="hero" style={{ padding: 0 }} data-tina-field={tinaFieldId}>
       <div className="hero-content">
-        <p className="hero-eyebrow">{d.eyebrow}</p>
+        <p className="hero-eyebrow" data-tina-field={data ? tinaField(data, 'eyebrow') : undefined}>{d.eyebrow}</p>
         <h1
           className="hero-headline"
+          data-tina-field={data ? tinaField(data, 'headline') : undefined}
           dangerouslySetInnerHTML={{ __html: parseHeadline(d.headline || defaultHero.headline!) }}
         />
-        <p className="hero-sub">{d.sub}</p>
+        <p className="hero-sub" data-tina-field={data ? tinaField(data, 'sub') : undefined}>{d.sub}</p>
         <div className="hero-actions">
-          <a href={d.primaryButtonHref || '#contact'} className="btn-primary">
+          <a href={d.primaryButtonHref || '#contact'} className="btn-primary" data-tina-field={data ? tinaField(data, 'primaryButtonText') : undefined}>
             {d.primaryButtonText}
           </a>
-          <a href={d.ghostButtonHref || '#how'} className="btn-ghost">
+          <a href={d.ghostButtonHref || '#how'} className="btn-ghost" data-tina-field={data ? tinaField(data, 'ghostButtonText') : undefined}>
             {d.ghostButtonText}
           </a>
         </div>
@@ -66,7 +69,7 @@ export default function Hero({ data }: { data?: HeroData }) {
       </div>
       <div className="hero-stat-bar">
         {stats.slice(0, 3).map((stat, i) => (
-          <div className="hero-stat" key={i}>
+          <div className="hero-stat" key={i} data-tina-field={tinaField(stat, 'number')}>
             <div className="stat-number">{stat.number}</div>
             <div className="stat-label">{stat.label}</div>
           </div>
