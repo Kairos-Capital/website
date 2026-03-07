@@ -15,6 +15,10 @@ export default defineConfig({
   // Get this from tina.io
   token: process.env.TINA_TOKEN,
 
+  ui: {
+    previewUrl: () => ({ url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000' }),
+  },
+
   build: {
     outputFolder: "admin",
     publicFolder: "public",
