@@ -1,0 +1,39 @@
+interface AboutData {
+  label?: string
+  headline?: string
+  paragraphs?: string[]
+}
+
+const defaultData: AboutData = {
+  label: 'Who We Are',
+  headline: 'A different kind of\n*acquirer.*',
+  paragraphs: [
+    'Most buyers see businesses as assets to extract value from. We see them differently — as communities of people, relationships built over years, and reputations earned through hard work.',
+    "When we acquire a business, we're making a long-term commitment. To the employees who depend on it. To the customers who trust it. To the founder who built it. We don't flip. We steward.",
+    'Kairos is built on the belief that the right moment — and the right partner — can turn a transition into a legacy.',
+  ],
+}
+
+export default function About({ data }: { data?: AboutData }) {
+  const d: AboutData = { ...defaultData, ...data }
+  const paragraphs = d.paragraphs && d.paragraphs.length > 0 ? d.paragraphs : defaultData.paragraphs!
+  const headlineHtml = (d.headline || defaultData.headline!)
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    .replace(/\n/g, '<br />')
+
+  return (
+    <section className="about" id="about">
+      <div className="section-inner">
+        <div className="about-grid reveal">
+          <div>
+            <p className="section-label">{d.label}</p>
+            <h2 className="about-headline" dangerouslySetInnerHTML={{ __html: headlineHtml }} />
+          </div>
+          <div className="about-body">
+            {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
