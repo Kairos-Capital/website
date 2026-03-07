@@ -1,0 +1,70 @@
+fragment PostParts on Post {
+  __typename
+  title
+  body
+}
+
+fragment PageParts on Page {
+  __typename
+  ... on PageHome {
+    hero {
+      __typename
+      eyebrow
+      headline
+      sub
+      primaryButtonText
+      primaryButtonHref
+      ghostButtonText
+      ghostButtonHref
+      stats {
+        __typename
+        number
+        label
+      }
+    }
+    about {
+      __typename
+      label
+      headline
+      paragraphs
+    }
+    how {
+      __typename
+      label
+      headline
+      description
+      steps {
+        __typename
+        number
+        title
+        body
+      }
+    }
+    criteria {
+      __typename
+      label
+      headline
+      items {
+        __typename
+        title
+        description
+      }
+    }
+    promise {
+      __typename
+      headline
+      items
+    }
+    cta {
+      __typename
+      headline
+      sub
+      buttonText
+      contactEmail
+    }
+  }
+  ... on PageDefault {
+    title
+    body
+  }
+}
