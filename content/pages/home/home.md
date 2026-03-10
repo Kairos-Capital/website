@@ -22,7 +22,7 @@ about:
     A different kind of
     *acquirer.*
   paragraphs:
-    - 'Most buyers see businesses as assets to extract value from. We see them differently — as communities of people, relationships built over years, and reputations earned through hard work.,When we acquire a business, we''re making a long-term commitment. To the employees who depend on it. To the customers who trust it. To the founder who built it. We don''t flip. We steward.,Kairos is built on the belief that the right moment — and the right partner — can turn a transition into a legacy.'
+    - 'Most buyers see businesses as assets to extract value from. We see them differently — as communities of people, relationships built over years, and reputations earned through hard work. When we acquire a business, we''re making a long-term commitment. To the employees who depend on it. To the customers who trust it. To the founder who built it. We don''t flip. We steward. Kairos is built on the belief that the right moment — and the right partner — can turn a transition into a legacy.'
 how:
   label: Our Process
   headline: |
