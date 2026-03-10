@@ -740,10 +740,15 @@ footer {
 	.nav-links { display: none; }
 	section { padding: 5rem 1.5rem; }
 
-	.hero { grid-template-columns: 1fr; }
-	.hero-content { padding: 8rem 1.5rem 3rem; }
+	/* Hero: switch to flex column so stat bar flows below content (not overlapping) */
+	.hero { display: flex; flex-direction: column; }
+	.hero-content { padding: 7rem 1.5rem 2.5rem; flex: 1; }
 	.hero-visual { display: none; }
-	.hero-stat-bar { left: 1.5rem; right: 1.5rem; grid-template-columns: 1fr; }
+	.hero-stat-bar {
+		position: static;
+		left: auto; right: auto; bottom: auto;
+		grid-template-columns: 1fr;
+	}
 
 	.about-grid,
 	.how-intro,
@@ -754,6 +759,18 @@ footer {
 	.criteria-list { grid-template-columns: 1fr; }
 	.criteria-headline { position: static; }
 
-	footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+	.promise { padding: 5rem 1.5rem; }
+	.cta-section { padding: 5rem 1.5rem; }
+
+	footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 1.5rem; }
 	.footer-links { flex-wrap: wrap; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+	.hero-headline { font-size: clamp(2.6rem, 12vw, 3.5rem); }
+	.stat-number { font-size: 2rem; }
+	.hero-stat { padding: 1.25rem 1.5rem; }
+	.steps { grid-template-columns: 1fr; }
+	.criteria-list { grid-template-columns: 1fr; }
+	.hero-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
 }
