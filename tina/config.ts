@@ -19,6 +19,11 @@ export default defineConfig({
     outputFolder: "admin",
     publicFolder: "public",
   },
+  ui: {
+    previewUrl: () => ({
+      url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+    }),
+  },
   media: {
     tina: {
       mediaRoot: "",
