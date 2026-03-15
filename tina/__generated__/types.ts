@@ -243,6 +243,7 @@ export type PageHomeHero = {
 
 export type PageHomeAbout = {
   __typename?: 'PageHomeAbout';
+  backgroundColor?: Maybe<Scalars['String']['output']>;
   label?: Maybe<Scalars['String']['output']>;
   headline?: Maybe<Scalars['String']['output']>;
   paragraphs?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
@@ -257,6 +258,7 @@ export type PageHomeHowSteps = {
 
 export type PageHomeHow = {
   __typename?: 'PageHomeHow';
+  backgroundColor?: Maybe<Scalars['String']['output']>;
   label?: Maybe<Scalars['String']['output']>;
   headline?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
@@ -271,6 +273,7 @@ export type PageHomeCriteriaItems = {
 
 export type PageHomeCriteria = {
   __typename?: 'PageHomeCriteria';
+  backgroundColor?: Maybe<Scalars['String']['output']>;
   label?: Maybe<Scalars['String']['output']>;
   headline?: Maybe<Scalars['String']['output']>;
   items?: Maybe<Array<Maybe<PageHomeCriteriaItems>>>;
@@ -278,12 +281,14 @@ export type PageHomeCriteria = {
 
 export type PageHomePromise = {
   __typename?: 'PageHomePromise';
+  backgroundColor?: Maybe<Scalars['String']['output']>;
   headline?: Maybe<Scalars['String']['output']>;
   items?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 export type PageHomeKairosStory = {
   __typename?: 'PageHomeKairosStory';
+  backgroundColor?: Maybe<Scalars['String']['output']>;
   eyebrow?: Maybe<Scalars['String']['output']>;
   headline?: Maybe<Scalars['String']['output']>;
   definition?: Maybe<Scalars['String']['output']>;
@@ -307,6 +312,7 @@ export type PageHomeDecisionFrame = {
 
 export type PageHomeCta = {
   __typename?: 'PageHomeCta';
+  backgroundColor?: Maybe<Scalars['String']['output']>;
   headline?: Maybe<Scalars['String']['output']>;
   sub?: Maybe<Scalars['String']['output']>;
   buttonText?: Maybe<Scalars['String']['output']>;
@@ -356,6 +362,7 @@ export type PageHomeHeroFilter = {
 };
 
 export type PageHomeAboutFilter = {
+  backgroundColor?: InputMaybe<StringFilter>;
   label?: InputMaybe<StringFilter>;
   headline?: InputMaybe<StringFilter>;
   paragraphs?: InputMaybe<StringFilter>;
@@ -368,6 +375,7 @@ export type PageHomeHowStepsFilter = {
 };
 
 export type PageHomeHowFilter = {
+  backgroundColor?: InputMaybe<StringFilter>;
   label?: InputMaybe<StringFilter>;
   headline?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
@@ -380,17 +388,20 @@ export type PageHomeCriteriaItemsFilter = {
 };
 
 export type PageHomeCriteriaFilter = {
+  backgroundColor?: InputMaybe<StringFilter>;
   label?: InputMaybe<StringFilter>;
   headline?: InputMaybe<StringFilter>;
   items?: InputMaybe<PageHomeCriteriaItemsFilter>;
 };
 
 export type PageHomePromiseFilter = {
+  backgroundColor?: InputMaybe<StringFilter>;
   headline?: InputMaybe<StringFilter>;
   items?: InputMaybe<StringFilter>;
 };
 
 export type PageHomeKairosStoryFilter = {
+  backgroundColor?: InputMaybe<StringFilter>;
   eyebrow?: InputMaybe<StringFilter>;
   headline?: InputMaybe<StringFilter>;
   definition?: InputMaybe<StringFilter>;
@@ -416,6 +427,7 @@ export type PageHomeDecisionFrameFilter = {
 };
 
 export type PageHomeCtaFilter = {
+  backgroundColor?: InputMaybe<StringFilter>;
   headline?: InputMaybe<StringFilter>;
   sub?: InputMaybe<StringFilter>;
   buttonText?: InputMaybe<StringFilter>;
@@ -559,6 +571,7 @@ export type PageHomeHeroMutation = {
 };
 
 export type PageHomeAboutMutation = {
+  backgroundColor?: InputMaybe<Scalars['String']['input']>;
   label?: InputMaybe<Scalars['String']['input']>;
   headline?: InputMaybe<Scalars['String']['input']>;
   paragraphs?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -571,6 +584,7 @@ export type PageHomeHowStepsMutation = {
 };
 
 export type PageHomeHowMutation = {
+  backgroundColor?: InputMaybe<Scalars['String']['input']>;
   label?: InputMaybe<Scalars['String']['input']>;
   headline?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
@@ -583,17 +597,20 @@ export type PageHomeCriteriaItemsMutation = {
 };
 
 export type PageHomeCriteriaMutation = {
+  backgroundColor?: InputMaybe<Scalars['String']['input']>;
   label?: InputMaybe<Scalars['String']['input']>;
   headline?: InputMaybe<Scalars['String']['input']>;
   items?: InputMaybe<Array<InputMaybe<PageHomeCriteriaItemsMutation>>>;
 };
 
 export type PageHomePromiseMutation = {
+  backgroundColor?: InputMaybe<Scalars['String']['input']>;
   headline?: InputMaybe<Scalars['String']['input']>;
   items?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type PageHomeKairosStoryMutation = {
+  backgroundColor?: InputMaybe<Scalars['String']['input']>;
   eyebrow?: InputMaybe<Scalars['String']['input']>;
   headline?: InputMaybe<Scalars['String']['input']>;
   definition?: InputMaybe<Scalars['String']['input']>;
@@ -614,6 +631,7 @@ export type PageHomeDecisionFrameMutation = {
 };
 
 export type PageHomeCtaMutation = {
+  backgroundColor?: InputMaybe<Scalars['String']['input']>;
   headline?: InputMaybe<Scalars['String']['input']>;
   sub?: InputMaybe<Scalars['String']['input']>;
   buttonText?: InputMaybe<Scalars['String']['input']>;
@@ -643,7 +661,7 @@ export type PageMutation = {
 
 export type PostPartsFragment = { __typename: 'Post', title: string, body?: any | null };
 
-type PageParts_PageHome_Fragment = { __typename: 'PageHome', hero?: { __typename: 'PageHomeHero', eyebrow?: string | null, headline?: string | null, sub?: string | null, primaryButtonText?: string | null, primaryButtonHref?: string | null, ghostButtonText?: string | null, ghostButtonHref?: string | null, stats?: Array<{ __typename: 'PageHomeHeroStats', number?: string | null, label?: string | null } | null> | null } | null, about?: { __typename: 'PageHomeAbout', label?: string | null, headline?: string | null, paragraphs?: Array<string | null> | null } | null, how?: { __typename: 'PageHomeHow', label?: string | null, headline?: string | null, description?: string | null, steps?: Array<{ __typename: 'PageHomeHowSteps', number?: string | null, title?: string | null, body?: string | null } | null> | null } | null, criteria?: { __typename: 'PageHomeCriteria', label?: string | null, headline?: string | null, items?: Array<{ __typename: 'PageHomeCriteriaItems', title?: string | null, description?: string | null } | null> | null } | null, promise?: { __typename: 'PageHomePromise', headline?: string | null, items?: Array<string | null> | null } | null, kairosStory?: { __typename: 'PageHomeKairosStory', eyebrow?: string | null, headline?: string | null, definition?: string | null, body?: string | null } | null, decisionFrame?: { __typename: 'PageHomeDecisionFrame', label?: string | null, headline?: string | null, options?: Array<{ __typename: 'PageHomeDecisionFrameOptions', title?: string | null, description?: string | null, bullets?: Array<string | null> | null, isHighlighted?: boolean | null } | null> | null } | null, cta?: { __typename: 'PageHomeCta', headline?: string | null, sub?: string | null, buttonText?: string | null, contactEmail?: string | null } | null };
+type PageParts_PageHome_Fragment = { __typename: 'PageHome', hero?: { __typename: 'PageHomeHero', eyebrow?: string | null, headline?: string | null, sub?: string | null, primaryButtonText?: string | null, primaryButtonHref?: string | null, ghostButtonText?: string | null, ghostButtonHref?: string | null, stats?: Array<{ __typename: 'PageHomeHeroStats', number?: string | null, label?: string | null } | null> | null } | null, about?: { __typename: 'PageHomeAbout', backgroundColor?: string | null, label?: string | null, headline?: string | null, paragraphs?: Array<string | null> | null } | null, how?: { __typename: 'PageHomeHow', backgroundColor?: string | null, label?: string | null, headline?: string | null, description?: string | null, steps?: Array<{ __typename: 'PageHomeHowSteps', number?: string | null, title?: string | null, body?: string | null } | null> | null } | null, criteria?: { __typename: 'PageHomeCriteria', backgroundColor?: string | null, label?: string | null, headline?: string | null, items?: Array<{ __typename: 'PageHomeCriteriaItems', title?: string | null, description?: string | null } | null> | null } | null, promise?: { __typename: 'PageHomePromise', backgroundColor?: string | null, headline?: string | null, items?: Array<string | null> | null } | null, kairosStory?: { __typename: 'PageHomeKairosStory', backgroundColor?: string | null, eyebrow?: string | null, headline?: string | null, definition?: string | null, body?: string | null } | null, decisionFrame?: { __typename: 'PageHomeDecisionFrame', label?: string | null, headline?: string | null, options?: Array<{ __typename: 'PageHomeDecisionFrameOptions', title?: string | null, description?: string | null, bullets?: Array<string | null> | null, isHighlighted?: boolean | null } | null> | null } | null, cta?: { __typename: 'PageHomeCta', backgroundColor?: string | null, headline?: string | null, sub?: string | null, buttonText?: string | null, contactEmail?: string | null } | null };
 
 type PageParts_PageDefault_Fragment = { __typename: 'PageDefault', title: string, body?: any | null };
 
@@ -673,7 +691,7 @@ export type PageQueryVariables = Exact<{
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page: { __typename: 'PageHome', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'PageHomeHero', eyebrow?: string | null, headline?: string | null, sub?: string | null, primaryButtonText?: string | null, primaryButtonHref?: string | null, ghostButtonText?: string | null, ghostButtonHref?: string | null, stats?: Array<{ __typename: 'PageHomeHeroStats', number?: string | null, label?: string | null } | null> | null } | null, about?: { __typename: 'PageHomeAbout', label?: string | null, headline?: string | null, paragraphs?: Array<string | null> | null } | null, how?: { __typename: 'PageHomeHow', label?: string | null, headline?: string | null, description?: string | null, steps?: Array<{ __typename: 'PageHomeHowSteps', number?: string | null, title?: string | null, body?: string | null } | null> | null } | null, criteria?: { __typename: 'PageHomeCriteria', label?: string | null, headline?: string | null, items?: Array<{ __typename: 'PageHomeCriteriaItems', title?: string | null, description?: string | null } | null> | null } | null, promise?: { __typename: 'PageHomePromise', headline?: string | null, items?: Array<string | null> | null } | null, kairosStory?: { __typename: 'PageHomeKairosStory', eyebrow?: string | null, headline?: string | null, definition?: string | null, body?: string | null } | null, decisionFrame?: { __typename: 'PageHomeDecisionFrame', label?: string | null, headline?: string | null, options?: Array<{ __typename: 'PageHomeDecisionFrameOptions', title?: string | null, description?: string | null, bullets?: Array<string | null> | null, isHighlighted?: boolean | null } | null> | null } | null, cta?: { __typename: 'PageHomeCta', headline?: string | null, sub?: string | null, buttonText?: string | null, contactEmail?: string | null } | null } | { __typename: 'PageDefault', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type PageQuery = { __typename?: 'Query', page: { __typename: 'PageHome', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'PageHomeHero', eyebrow?: string | null, headline?: string | null, sub?: string | null, primaryButtonText?: string | null, primaryButtonHref?: string | null, ghostButtonText?: string | null, ghostButtonHref?: string | null, stats?: Array<{ __typename: 'PageHomeHeroStats', number?: string | null, label?: string | null } | null> | null } | null, about?: { __typename: 'PageHomeAbout', backgroundColor?: string | null, label?: string | null, headline?: string | null, paragraphs?: Array<string | null> | null } | null, how?: { __typename: 'PageHomeHow', backgroundColor?: string | null, label?: string | null, headline?: string | null, description?: string | null, steps?: Array<{ __typename: 'PageHomeHowSteps', number?: string | null, title?: string | null, body?: string | null } | null> | null } | null, criteria?: { __typename: 'PageHomeCriteria', backgroundColor?: string | null, label?: string | null, headline?: string | null, items?: Array<{ __typename: 'PageHomeCriteriaItems', title?: string | null, description?: string | null } | null> | null } | null, promise?: { __typename: 'PageHomePromise', backgroundColor?: string | null, headline?: string | null, items?: Array<string | null> | null } | null, kairosStory?: { __typename: 'PageHomeKairosStory', backgroundColor?: string | null, eyebrow?: string | null, headline?: string | null, definition?: string | null, body?: string | null } | null, decisionFrame?: { __typename: 'PageHomeDecisionFrame', label?: string | null, headline?: string | null, options?: Array<{ __typename: 'PageHomeDecisionFrameOptions', title?: string | null, description?: string | null, bullets?: Array<string | null> | null, isHighlighted?: boolean | null } | null> | null } | null, cta?: { __typename: 'PageHomeCta', backgroundColor?: string | null, headline?: string | null, sub?: string | null, buttonText?: string | null, contactEmail?: string | null } | null } | { __typename: 'PageDefault', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type PageConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -685,7 +703,7 @@ export type PageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PageConnectionEdges', cursor: string, node?: { __typename: 'PageHome', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'PageHomeHero', eyebrow?: string | null, headline?: string | null, sub?: string | null, primaryButtonText?: string | null, primaryButtonHref?: string | null, ghostButtonText?: string | null, ghostButtonHref?: string | null, stats?: Array<{ __typename: 'PageHomeHeroStats', number?: string | null, label?: string | null } | null> | null } | null, about?: { __typename: 'PageHomeAbout', label?: string | null, headline?: string | null, paragraphs?: Array<string | null> | null } | null, how?: { __typename: 'PageHomeHow', label?: string | null, headline?: string | null, description?: string | null, steps?: Array<{ __typename: 'PageHomeHowSteps', number?: string | null, title?: string | null, body?: string | null } | null> | null } | null, criteria?: { __typename: 'PageHomeCriteria', label?: string | null, headline?: string | null, items?: Array<{ __typename: 'PageHomeCriteriaItems', title?: string | null, description?: string | null } | null> | null } | null, promise?: { __typename: 'PageHomePromise', headline?: string | null, items?: Array<string | null> | null } | null, kairosStory?: { __typename: 'PageHomeKairosStory', eyebrow?: string | null, headline?: string | null, definition?: string | null, body?: string | null } | null, decisionFrame?: { __typename: 'PageHomeDecisionFrame', label?: string | null, headline?: string | null, options?: Array<{ __typename: 'PageHomeDecisionFrameOptions', title?: string | null, description?: string | null, bullets?: Array<string | null> | null, isHighlighted?: boolean | null } | null> | null } | null, cta?: { __typename: 'PageHomeCta', headline?: string | null, sub?: string | null, buttonText?: string | null, contactEmail?: string | null } | null } | { __typename: 'PageDefault', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PageConnectionEdges', cursor: string, node?: { __typename: 'PageHome', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'PageHomeHero', eyebrow?: string | null, headline?: string | null, sub?: string | null, primaryButtonText?: string | null, primaryButtonHref?: string | null, ghostButtonText?: string | null, ghostButtonHref?: string | null, stats?: Array<{ __typename: 'PageHomeHeroStats', number?: string | null, label?: string | null } | null> | null } | null, about?: { __typename: 'PageHomeAbout', backgroundColor?: string | null, label?: string | null, headline?: string | null, paragraphs?: Array<string | null> | null } | null, how?: { __typename: 'PageHomeHow', backgroundColor?: string | null, label?: string | null, headline?: string | null, description?: string | null, steps?: Array<{ __typename: 'PageHomeHowSteps', number?: string | null, title?: string | null, body?: string | null } | null> | null } | null, criteria?: { __typename: 'PageHomeCriteria', backgroundColor?: string | null, label?: string | null, headline?: string | null, items?: Array<{ __typename: 'PageHomeCriteriaItems', title?: string | null, description?: string | null } | null> | null } | null, promise?: { __typename: 'PageHomePromise', backgroundColor?: string | null, headline?: string | null, items?: Array<string | null> | null } | null, kairosStory?: { __typename: 'PageHomeKairosStory', backgroundColor?: string | null, eyebrow?: string | null, headline?: string | null, definition?: string | null, body?: string | null } | null, decisionFrame?: { __typename: 'PageHomeDecisionFrame', label?: string | null, headline?: string | null, options?: Array<{ __typename: 'PageHomeDecisionFrameOptions', title?: string | null, description?: string | null, bullets?: Array<string | null> | null, isHighlighted?: boolean | null } | null> | null } | null, cta?: { __typename: 'PageHomeCta', backgroundColor?: string | null, headline?: string | null, sub?: string | null, buttonText?: string | null, contactEmail?: string | null } | null } | { __typename: 'PageDefault', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export const PostPartsFragmentDoc = gql`
     fragment PostParts on Post {
@@ -715,12 +733,14 @@ export const PagePartsFragmentDoc = gql`
     }
     about {
       __typename
+      backgroundColor
       label
       headline
       paragraphs
     }
     how {
       __typename
+      backgroundColor
       label
       headline
       description
@@ -733,6 +753,7 @@ export const PagePartsFragmentDoc = gql`
     }
     criteria {
       __typename
+      backgroundColor
       label
       headline
       items {
@@ -743,11 +764,13 @@ export const PagePartsFragmentDoc = gql`
     }
     promise {
       __typename
+      backgroundColor
       headline
       items
     }
     kairosStory {
       __typename
+      backgroundColor
       eyebrow
       headline
       definition
@@ -767,6 +790,7 @@ export const PagePartsFragmentDoc = gql`
     }
     cta {
       __typename
+      backgroundColor
       headline
       sub
       buttonText
@@ -955,7 +979,7 @@ export const ExperimentalGetTinaClient = () =>
   getSdk(
     generateRequester(
       createClient({
-        url: "http://localhost:4001/graphql",
+        url: "https://content.tinajs.io/2.1/content/b07dcc89-b82a-4af0-8334-849b60e39099/github/main",
         queries,
       })
     )

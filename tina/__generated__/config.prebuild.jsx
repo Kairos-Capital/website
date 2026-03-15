@@ -90,6 +90,24 @@ var config_default = defineConfig({
                 name: "about",
                 label: "About",
                 fields: [
+                  {
+                    type: "string",
+                    name: "backgroundColor",
+                    label: "Background Color",
+                    options: [
+                      { label: "Purple", value: "purple" },
+                      { label: "Purple Dark", value: "purple-dark" },
+                      { label: "Red", value: "red" },
+                      { label: "Blue", value: "blue" },
+                      { label: "Yellow", value: "yellow" },
+                      { label: "Green", value: "green" },
+                      { label: "Aqua", value: "aqua" },
+                      { label: "Pink", value: "pink" },
+                      { label: "White", value: "white" },
+                      { label: "Light Gray", value: "light" },
+                      { label: "Black", value: "ink" }
+                    ]
+                  },
                   { type: "string", name: "label", label: "Section Label" },
                   { type: "string", name: "headline", label: "Headline", ui: { component: "textarea" } },
                   {
@@ -106,6 +124,24 @@ var config_default = defineConfig({
                 name: "how",
                 label: "How We Buy",
                 fields: [
+                  {
+                    type: "string",
+                    name: "backgroundColor",
+                    label: "Background Color",
+                    options: [
+                      { label: "Purple", value: "purple" },
+                      { label: "Purple Dark", value: "purple-dark" },
+                      { label: "Red", value: "red" },
+                      { label: "Blue", value: "blue" },
+                      { label: "Yellow", value: "yellow" },
+                      { label: "Green", value: "green" },
+                      { label: "Aqua", value: "aqua" },
+                      { label: "Pink", value: "pink" },
+                      { label: "White", value: "white" },
+                      { label: "Light Gray", value: "light" },
+                      { label: "Black", value: "ink" }
+                    ]
+                  },
                   { type: "string", name: "label", label: "Section Label" },
                   { type: "string", name: "headline", label: "Headline", ui: { component: "textarea" } },
                   { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
@@ -127,6 +163,24 @@ var config_default = defineConfig({
                 name: "criteria",
                 label: "Criteria",
                 fields: [
+                  {
+                    type: "string",
+                    name: "backgroundColor",
+                    label: "Background Color",
+                    options: [
+                      { label: "Purple", value: "purple" },
+                      { label: "Purple Dark", value: "purple-dark" },
+                      { label: "Red", value: "red" },
+                      { label: "Blue", value: "blue" },
+                      { label: "Yellow", value: "yellow" },
+                      { label: "Green", value: "green" },
+                      { label: "Aqua", value: "aqua" },
+                      { label: "Pink", value: "pink" },
+                      { label: "White", value: "white" },
+                      { label: "Light Gray", value: "light" },
+                      { label: "Black", value: "ink" }
+                    ]
+                  },
                   { type: "string", name: "label", label: "Section Label" },
                   { type: "string", name: "headline", label: "Headline", ui: { component: "textarea" } },
                   {
@@ -146,6 +200,24 @@ var config_default = defineConfig({
                 name: "promise",
                 label: "Promise",
                 fields: [
+                  {
+                    type: "string",
+                    name: "backgroundColor",
+                    label: "Background Color",
+                    options: [
+                      { label: "Purple", value: "purple" },
+                      { label: "Purple Dark", value: "purple-dark" },
+                      { label: "Red", value: "red" },
+                      { label: "Blue", value: "blue" },
+                      { label: "Yellow", value: "yellow" },
+                      { label: "Green", value: "green" },
+                      { label: "Aqua", value: "aqua" },
+                      { label: "Pink", value: "pink" },
+                      { label: "White", value: "white" },
+                      { label: "Light Gray", value: "light" },
+                      { label: "Black", value: "ink" }
+                    ]
+                  },
                   { type: "string", name: "headline", label: "Headline", ui: { component: "textarea" } },
                   {
                     type: "string",
@@ -161,6 +233,24 @@ var config_default = defineConfig({
                 name: "kairosStory",
                 label: "Kairos Story",
                 fields: [
+                  {
+                    type: "string",
+                    name: "backgroundColor",
+                    label: "Background Color",
+                    options: [
+                      { label: "Purple", value: "purple" },
+                      { label: "Purple Dark", value: "purple-dark" },
+                      { label: "Red", value: "red" },
+                      { label: "Blue", value: "blue" },
+                      { label: "Yellow", value: "yellow" },
+                      { label: "Green", value: "green" },
+                      { label: "Aqua", value: "aqua" },
+                      { label: "Pink", value: "pink" },
+                      { label: "White", value: "white" },
+                      { label: "Light Gray", value: "light" },
+                      { label: "Black", value: "ink" }
+                    ]
+                  },
                   { type: "string", name: "eyebrow", label: "Eyebrow" },
                   { type: "string", name: "headline", label: "Headline", ui: { component: "textarea" } },
                   { type: "string", name: "definition", label: "Definition (Greek)" },
@@ -193,6 +283,24 @@ var config_default = defineConfig({
                 name: "cta",
                 label: "CTA",
                 fields: [
+                  {
+                    type: "string",
+                    name: "backgroundColor",
+                    label: "Background Color",
+                    options: [
+                      { label: "Purple", value: "purple" },
+                      { label: "Purple Dark", value: "purple-dark" },
+                      { label: "Red", value: "red" },
+                      { label: "Blue", value: "blue" },
+                      { label: "Yellow", value: "yellow" },
+                      { label: "Green", value: "green" },
+                      { label: "Aqua", value: "aqua" },
+                      { label: "Pink", value: "pink" },
+                      { label: "White", value: "white" },
+                      { label: "Light Gray", value: "light" },
+                      { label: "Black", value: "ink" }
+                    ]
+                  },
                   { type: "string", name: "headline", label: "Headline", ui: { component: "textarea" } },
                   { type: "string", name: "sub", label: "Subtext", ui: { component: "textarea" } },
                   { type: "string", name: "buttonText", label: "Button Text" },

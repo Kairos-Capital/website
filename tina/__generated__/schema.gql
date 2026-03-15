@@ -144,6 +144,7 @@ type PageHomeHero {
 }
 
 type PageHomeAbout {
+  backgroundColor: String
   label: String
   headline: String
   paragraphs: [String]
@@ -156,6 +157,7 @@ type PageHomeHowSteps {
 }
 
 type PageHomeHow {
+  backgroundColor: String
   label: String
   headline: String
   description: String
@@ -168,17 +170,20 @@ type PageHomeCriteriaItems {
 }
 
 type PageHomeCriteria {
+  backgroundColor: String
   label: String
   headline: String
   items: [PageHomeCriteriaItems]
 }
 
 type PageHomePromise {
+  backgroundColor: String
   headline: String
   items: [String]
 }
 
 type PageHomeKairosStory {
+  backgroundColor: String
   eyebrow: String
   headline: String
   definition: String
@@ -199,6 +204,7 @@ type PageHomeDecisionFrame {
 }
 
 type PageHomeCta {
+  backgroundColor: String
   headline: String
   sub: String
   buttonText: String
@@ -246,6 +252,7 @@ input PageHomeHeroFilter {
 }
 
 input PageHomeAboutFilter {
+  backgroundColor: StringFilter
   label: StringFilter
   headline: StringFilter
   paragraphs: StringFilter
@@ -258,6 +265,7 @@ input PageHomeHowStepsFilter {
 }
 
 input PageHomeHowFilter {
+  backgroundColor: StringFilter
   label: StringFilter
   headline: StringFilter
   description: StringFilter
@@ -270,17 +278,20 @@ input PageHomeCriteriaItemsFilter {
 }
 
 input PageHomeCriteriaFilter {
+  backgroundColor: StringFilter
   label: StringFilter
   headline: StringFilter
   items: PageHomeCriteriaItemsFilter
 }
 
 input PageHomePromiseFilter {
+  backgroundColor: StringFilter
   headline: StringFilter
   items: StringFilter
 }
 
 input PageHomeKairosStoryFilter {
+  backgroundColor: StringFilter
   eyebrow: StringFilter
   headline: StringFilter
   definition: StringFilter
@@ -306,6 +317,7 @@ input PageHomeDecisionFrameFilter {
 }
 
 input PageHomeCtaFilter {
+  backgroundColor: StringFilter
   headline: StringFilter
   sub: StringFilter
   buttonText: StringFilter
@@ -389,6 +401,7 @@ input PageHomeHeroMutation {
 }
 
 input PageHomeAboutMutation {
+  backgroundColor: String
   label: String
   headline: String
   paragraphs: [String]
@@ -401,6 +414,7 @@ input PageHomeHowStepsMutation {
 }
 
 input PageHomeHowMutation {
+  backgroundColor: String
   label: String
   headline: String
   description: String
@@ -413,17 +427,20 @@ input PageHomeCriteriaItemsMutation {
 }
 
 input PageHomeCriteriaMutation {
+  backgroundColor: String
   label: String
   headline: String
   items: [PageHomeCriteriaItemsMutation]
 }
 
 input PageHomePromiseMutation {
+  backgroundColor: String
   headline: String
   items: [String]
 }
 
 input PageHomeKairosStoryMutation {
+  backgroundColor: String
   eyebrow: String
   headline: String
   definition: String
@@ -444,6 +461,7 @@ input PageHomeDecisionFrameMutation {
 }
 
 input PageHomeCtaMutation {
+  backgroundColor: String
   headline: String
   sub: String
   buttonText: String

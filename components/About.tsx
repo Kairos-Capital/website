@@ -1,4 +1,5 @@
 interface AboutData {
+  backgroundColor?: string
   label?: string
   headline?: string
   paragraphs?: string[]
@@ -16,16 +17,20 @@ const defaultData: AboutData = {
 
 import { tinaField } from 'tinacms/dist/react'
 
+const DARK_BG = new Set(['purple', 'purple-dark', 'red', 'blue', 'ink', 'stone', 'black'])
+function bgTheme(color?: string) { return color ? (DARK_BG.has(color) ? ' theme-dark' : ' theme-light') : '' }
+
 export default function About({ data, tinaFieldId }: { data?: AboutData; tinaFieldId?: string }) {
   const d: AboutData = { ...defaultData, ...data }
   const tinaData = data as Record<string, unknown> | undefined
+  const bgStyle = d.backgroundColor ? { background: `var(--${d.backgroundColor})` } : undefined
   const paragraphs = d.paragraphs && d.paragraphs.length > 0 ? d.paragraphs : defaultData.paragraphs!
   const headlineHtml = (d.headline || defaultData.headline!)
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
     .replace(/\n/g, '<br />')
 
   return (
-    <section className="about" id="about" data-tina-field={tinaFieldId}>
+    <section className={`about${bgTheme(d.backgroundColor)}`} id="about" style={bgStyle} data-tina-field={tinaFieldId}>
       <div className="section-inner">
         <div className="about-grid reveal">
           <div>

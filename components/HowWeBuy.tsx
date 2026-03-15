@@ -5,6 +5,7 @@ interface Step {
 }
 
 interface HowData {
+  backgroundColor?: string
   label?: string
   headline?: string
   description?: string
@@ -25,14 +26,18 @@ const defaultData: HowData = {
 
 import { tinaField } from 'tinacms/dist/react'
 
+const DARK_BG = new Set(['purple', 'purple-dark', 'red', 'blue', 'ink', 'stone', 'black'])
+function bgTheme(color?: string) { return color ? (DARK_BG.has(color) ? ' theme-dark' : ' theme-light') : '' }
+
 export default function HowWeBuy({ data, tinaFieldId }: { data?: HowData; tinaFieldId?: string }) {
   const d: HowData = { ...defaultData, ...data }
   const tinaData = data as Record<string, unknown> | undefined
+  const bgStyle = d.backgroundColor ? { background: `var(--${d.backgroundColor})` } : undefined
   const steps = d.steps && d.steps.length >= 4 ? d.steps : defaultData.steps!
   const headlineHtml = (d.headline || defaultData.headline!).replace(/\n/g, '<br />')
 
   return (
-    <section className="how" id="how" data-tina-field={tinaFieldId}>
+    <section className={`how${bgTheme(d.backgroundColor)}`} id="how" style={bgStyle} data-tina-field={tinaFieldId}>
       <div className="section-inner">
         <div className="how-intro reveal">
           <div>

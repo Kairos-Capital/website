@@ -17,6 +17,7 @@ hero:
     - number: 60-day
       label: Average Close Timeline
 kairosStory:
+  backgroundColor: red
   eyebrow: Why We're Called Kairos
   headline: |
     The *right* moment.
@@ -30,6 +31,7 @@ kairosStory:
     right moment and acting with purpose, integrity, and respect for what
     you've built.
 about:
+  backgroundColor: yellow
   label: Who We Are
   headline: |
     A different kind of
@@ -66,6 +68,7 @@ decisionFrame:
         - Legacy-first. Always.
       isHighlighted: true
 how:
+  backgroundColor: light
   label: Our Process
   headline: |
     A clear path from
@@ -85,6 +88,7 @@ how:
       title: Close & Transition
       body: 'We close, you get paid, and we work together on a thoughtful transition that protects what you''ve built.'
 criteria:
+  backgroundColor: ink
   label: What We Look For
   headline: |
     Is your business
@@ -105,6 +109,7 @@ criteria:
     - title: Deal Type
       description: 'We buy to own — no flips, no breakups. This is a permanent home for your business.'
 promise:
+  backgroundColor: green
   headline: |
     Our promise
     to every
@@ -116,6 +121,7 @@ promise:
     - We honor what you've built and carry it forward with intention.
     - 'If it''s not the right fit, we''ll tell you early and part on good terms.'
 cta:
+  backgroundColor: purple
   headline: |
     Ready to talk about
     your *next chapter?*

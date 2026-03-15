@@ -24,12 +24,14 @@ fragment PageParts on Page {
     }
     about {
       __typename
+      backgroundColor
       label
       headline
       paragraphs
     }
     how {
       __typename
+      backgroundColor
       label
       headline
       description
@@ -42,6 +44,7 @@ fragment PageParts on Page {
     }
     criteria {
       __typename
+      backgroundColor
       label
       headline
       items {
@@ -52,11 +55,13 @@ fragment PageParts on Page {
     }
     promise {
       __typename
+      backgroundColor
       headline
       items
     }
     kairosStory {
       __typename
+      backgroundColor
       eyebrow
       headline
       definition
@@ -76,6 +81,7 @@ fragment PageParts on Page {
     }
     cta {
       __typename
+      backgroundColor
       headline
       sub
       buttonText
