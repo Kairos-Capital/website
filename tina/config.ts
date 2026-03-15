@@ -166,6 +166,38 @@ export default defineConfig({
               },
               {
                 type: "object",
+                name: "kairosStory",
+                label: "Kairos Story",
+                fields: [
+                  { type: "string", name: "eyebrow", label: "Eyebrow" },
+                  { type: "string", name: "headline", label: "Headline", ui: { component: "textarea" } },
+                  { type: "string", name: "definition", label: "Definition (Greek)" },
+                  { type: "string", name: "body", label: "Body", ui: { component: "textarea" } },
+                ],
+              },
+              {
+                type: "object",
+                name: "decisionFrame",
+                label: "Decision Frame",
+                fields: [
+                  { type: "string", name: "label", label: "Section Label" },
+                  { type: "string", name: "headline", label: "Headline", ui: { component: "textarea" } },
+                  {
+                    type: "object",
+                    name: "options",
+                    label: "Options",
+                    list: true,
+                    fields: [
+                      { type: "string", name: "title", label: "Title" },
+                      { type: "string", name: "description", label: "Description" },
+                      { type: "string", name: "bullets", label: "Bullets", list: true },
+                      { type: "boolean", name: "isHighlighted", label: "Highlighted (Kairos column)" },
+                    ],
+                  },
+                ],
+              },
+              {
+                type: "object",
                 name: "cta",
                 label: "CTA",
                 fields: [

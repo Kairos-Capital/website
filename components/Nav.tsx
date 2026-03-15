@@ -10,10 +10,11 @@ export default function Nav() {
         <span className="nav-logo-text">Kairos Capital</span>
       </a>
       <ul className="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#how">How We Buy</a></li>
-        <li><a href="#criteria">Criteria</a></li>
-        <li><a href="#contact" className="nav-cta">Start a Conversation</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#how">How We Buy</a></li>
+        <li><a href="/#criteria">Criteria</a></li>
+        <li><a href="/for-sellers">For Sellers</a></li>
+        <li><a href="/#contact" className="nav-cta">Start a Conversation</a></li>
       </ul>
     </nav>
   )

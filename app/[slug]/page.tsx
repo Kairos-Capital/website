@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation'
 import { getDefaultPageSlugs, loadDefaultPage } from '../../lib/loadPageContent'
 import DefaultPageClient from '../../components/DefaultPageClient'
 
@@ -11,12 +12,17 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params
+  const knownSlugs = getDefaultPageSlugs()
+  if (!knownSlugs.includes(slug)) return {}
   const { title } = loadDefaultPage(slug)
   return { title: `${title} — Kairos Capital` }
 }
 
 export default async function SlugPage({ params }: Props) {
   const { slug } = await params
+
+  const knownSlugs = getDefaultPageSlugs()
+  if (!knownSlugs.includes(slug)) notFound()
 
   try {
     const { client } = await import('../../tina/__generated__/client')

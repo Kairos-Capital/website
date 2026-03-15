@@ -257,21 +257,24 @@ nav {
 	right: 3rem;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 1px;
-	background: rgba(255,255,255,0.15);
+	gap: 2px;
+	background: rgba(0,0,0,0.3);
 	z-index: 2;
 	opacity: 0;
 	animation: fadeUp 0.9s ease forwards 1s;
 }
 
 .hero-stat {
-	background: var(--purple);
 	padding: 1.5rem 2rem;
 	border-top: 2px solid transparent;
-	transition: border-color 0.3s;
+	transition: filter 0.2s;
 }
 
-.hero-stat:hover { border-color: var(--red); }
+.hero-stat:hover { filter: brightness(1.08); }
+
+.hero-stat:nth-child(1) { background: var(--yellow); }
+.hero-stat:nth-child(2) { background: var(--red); }
+.hero-stat:nth-child(3) { background: var(--blue); }
 
 .stat-number {
 	font-family: var(--font-sans);
@@ -282,9 +285,14 @@ nav {
 	letter-spacing: -0.03em;
 }
 
-.stat-number span {
-	color: var(--red);
-}
+/* Yellow tile needs dark text */
+.hero-stat:nth-child(1) .stat-number { color: var(--ink); }
+.hero-stat:nth-child(1) .stat-number span { color: var(--purple); }
+.hero-stat:nth-child(1) .stat-label { color: rgba(0,0,0,0.5); }
+
+/* Red + blue tiles keep white text */
+.hero-stat:nth-child(2) .stat-number span,
+.hero-stat:nth-child(3) .stat-number span { color: var(--yellow); }
 
 .stat-label {
 	font-family: var(--font-sans);
@@ -328,9 +336,20 @@ section {
 
 /* ── ABOUT SECTION ── */
 .about {
-	background: var(--white);
-	border-top: 1px solid #e8e8e8;
-	border-bottom: 1px solid #e8e8e8;
+	background: var(--yellow);
+}
+
+/* Dark text overrides for yellow background — ash (#606d78) fails WCAG AA on yellow */
+.about .section-label {
+	color: var(--stone);
+}
+
+.about .section-label::before {
+	background: var(--stone);
+}
+
+.about-body p {
+	color: var(--stone);
 }
 
 .about-grid {
@@ -366,8 +385,7 @@ section {
 
 /* ── HOW WE BUY ── */
 .how {
-	background: var(--white);
-	border-bottom: 1px solid #e8e8e8;
+	background: var(--light);
 }
 
 .how-intro {
@@ -461,9 +479,7 @@ section {
 
 /* ── CRITERIA ── */
 .criteria {
-	background: var(--light);
-	border-top: 1px solid #e0e4e8;
-	border-bottom: 1px solid #e0e4e8;
+	background: var(--ink);
 }
 
 .criteria-grid {
@@ -479,9 +495,18 @@ section {
 	font-weight: 700;
 	line-height: 1.1;
 	letter-spacing: -0.02em;
-	color: var(--purple);
+	color: var(--white);
 	position: sticky;
 	top: 8rem;
+}
+
+/* Light text overrides for ink background */
+.criteria .section-label {
+	color: rgba(255,255,255,0.45);
+}
+
+.criteria .section-label::before {
+	background: rgba(255,255,255,0.3);
 }
 
 .criteria-headline em {
@@ -556,7 +581,7 @@ section {
 
 /* ── PROMISE ── */
 .promise {
-	background: var(--red);
+	background: var(--green);
 	padding: 7rem 3rem;
 }
 
@@ -584,17 +609,17 @@ section {
 
 .promise-points li {
 	font-size: 1rem;
-	color: rgba(255,255,255,0.9);
+	color: rgba(0,0,0,0.8);
 	font-weight: 500;
 	line-height: 1.7;
 	padding: 1.25rem 0;
-	border-bottom: 1px solid rgba(255,255,255,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.15);
 	display: flex;
 	gap: 1rem;
 	align-items: flex-start;
 }
 
-.promise-points li:first-child { border-top: 1px solid rgba(255,255,255,0.25); }
+.promise-points li:first-child { border-top: 1px solid rgba(0,0,0,0.15); }
 
 .promise-points li::before {
 	content: '→';
@@ -651,6 +676,12 @@ footer {
 	gap: 0.75rem;
 }
 
+.footer-copy-block {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+
 .footer-wordmark {
 	font-family: var(--font-sans);
 	font-size: 0.85rem;
@@ -658,6 +689,15 @@ footer {
 	letter-spacing: 0.18em;
 	text-transform: uppercase;
 	color: rgba(255,255,255,0.5);
+}
+
+.footer-slogan {
+	font-family: var(--font-sans);
+	font-size: 0.72rem;
+	font-weight: 400;
+	letter-spacing: 0.04em;
+	color: rgba(255,255,255,0.25);
+	font-style: italic;
 }
 
 .footer-copy {
@@ -773,4 +813,221 @@ footer {
 	.steps { grid-template-columns: 1fr; }
 	.criteria-list { grid-template-columns: 1fr; }
 	.hero-actions { flex-direction: column; align-items: flex-start; gap: 1rem; }
+}
+
+/* ── KAIROS STORY ── */
+.kairos-story {
+	background: var(--red);
+	text-align: center;
+}
+
+.kairos-story-inner {
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+.kairos-story-eyebrow {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: rgba(255,255,255,0.4);
+	margin-bottom: 2rem;
+}
+
+.kairos-story-headline {
+	font-family: var(--font-sans);
+	font-size: clamp(3rem, 6vw, 5rem);
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	line-height: 1.0;
+	color: var(--white);
+	margin-bottom: 1rem;
+}
+
+.kairos-story-headline em {
+	font-style: normal;
+	color: var(--yellow);
+}
+
+.kairos-story-definition {
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: rgba(255,255,255,0.4);
+	margin-bottom: 3rem;
+}
+
+.kairos-story-body {
+	font-size: clamp(1.05rem, 2vw, 1.25rem);
+	font-weight: 400;
+	color: rgba(255,255,255,0.8);
+	line-height: 1.8;
+}
+
+/* ── DECISION FRAME ── */
+.decision-frame {
+	background: var(--white);
+}
+
+.decision-frame-headline {
+	font-family: var(--font-sans);
+	font-size: clamp(2rem, 3.5vw, 3.2rem);
+	font-weight: 700;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	color: var(--purple);
+	margin-bottom: 3rem;
+}
+
+.decision-frame-headline em {
+	font-style: normal;
+	font-weight: 800;
+	color: var(--red);
+}
+
+.decision-frame-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0;
+}
+
+.decision-option {
+	padding: 2.5rem;
+	background: var(--white);
+	border: 1px solid #e0e4e8;
+	border-right: none;
+}
+
+.decision-option:last-child {
+	border-right: 1px solid #e0e4e8;
+}
+
+.decision-option--highlighted {
+	background: var(--purple);
+}
+
+.decision-option-header {
+	margin-bottom: 2rem;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.decision-option--highlighted .decision-option-header {
+	border-bottom-color: rgba(255,255,255,0.2);
+}
+
+.decision-option-title {
+	font-family: var(--font-sans);
+	font-size: 1.1rem;
+	font-weight: 700;
+	letter-spacing: -0.01em;
+	color: var(--stone);
+	margin-bottom: 0.4rem;
+}
+
+.decision-option--highlighted .decision-option-title {
+	color: var(--white);
+}
+
+.decision-option-desc {
+	font-size: 0.85rem;
+	color: var(--ash);
+	font-weight: 500;
+}
+
+.decision-option--highlighted .decision-option-desc {
+	color: rgba(255,255,255,0.65);
+}
+
+.decision-option-bullets {
+	list-style: none;
+}
+
+.decision-option-bullets li {
+	font-size: 0.9rem;
+	color: var(--ash);
+	line-height: 1.7;
+	padding: 0.6rem 0;
+	border-bottom: 1px solid rgba(0,0,0,0.06);
+	display: flex;
+	gap: 0.75rem;
+	align-items: flex-start;
+}
+
+.decision-option-bullets li::before {
+	content: '✕';
+	font-size: 0.7rem;
+	font-weight: 700;
+	color: var(--red);
+	flex-shrink: 0;
+	margin-top: 0.25rem;
+}
+
+.decision-option-bullets li:last-child { border-bottom: none; }
+
+.decision-option--highlighted .decision-option-bullets li {
+	color: rgba(255,255,255,0.85);
+	border-bottom-color: rgba(255,255,255,0.1);
+}
+
+.decision-option--highlighted .decision-option-bullets li::before {
+	content: '→';
+	color: var(--red);
+}
+
+/* ── CRITERIA 7th ITEM (pink) ── */
+.criteria-item:nth-child(7) { background: var(--pink); grid-column: span 2; }
+.criteria-item:nth-child(7) .criteria-title { color: var(--black); }
+.criteria-item:nth-child(7) .criteria-desc { color: rgba(0,0,0,0.65); }
+.criteria-item:nth-child(7) .criteria-icon { opacity: 0.8; }
+
+/* ── PROSE STYLES (inner pages) ── */
+.page-content .prose h2 {
+	font-family: var(--font-sans);
+	font-size: 1.5rem;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	color: var(--purple);
+	margin: 2.5rem 0 1rem;
+}
+
+.page-content .prose h3 {
+	font-family: var(--font-sans);
+	font-size: 1.1rem;
+	font-weight: 700;
+	color: var(--stone);
+	margin: 1.5rem 0 0.5rem;
+}
+
+.page-content .prose ul {
+	margin: 0.75rem 0 1.25rem 1.25rem;
+}
+
+.page-content .prose li {
+	margin-bottom: 0.5rem;
+	color: var(--ash);
+	line-height: 1.75;
+}
+
+.page-content .prose strong {
+	font-weight: 700;
+	color: var(--stone);
+}
+
+.page-content .prose a {
+	color: var(--purple);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.page-content .prose a:hover { color: var(--red); }
+
+/* ── RESPONSIVE (new sections) ── */
+@media (max-width: 900px) {
+	.decision-frame-grid { grid-template-columns: 1fr; }
+	.decision-option { border-right: 1px solid #e0e4e8; border-bottom: none; }
+	.decision-option:last-child { border-bottom: 1px solid #e0e4e8; }
+	.criteria-item:nth-child(7) { grid-column: span 1; }
 }

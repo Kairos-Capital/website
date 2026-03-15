@@ -55,6 +55,25 @@ fragment PageParts on Page {
       headline
       items
     }
+    kairosStory {
+      __typename
+      eyebrow
+      headline
+      definition
+      body
+    }
+    decisionFrame {
+      __typename
+      label
+      headline
+      options {
+        __typename
+        title
+        description
+        bullets
+        isHighlighted
+      }
+    }
     cta {
       __typename
       headline

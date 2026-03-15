@@ -178,6 +178,26 @@ type PageHomePromise {
   items: [String]
 }
 
+type PageHomeKairosStory {
+  eyebrow: String
+  headline: String
+  definition: String
+  body: String
+}
+
+type PageHomeDecisionFrameOptions {
+  title: String
+  description: String
+  bullets: [String]
+  isHighlighted: Boolean
+}
+
+type PageHomeDecisionFrame {
+  label: String
+  headline: String
+  options: [PageHomeDecisionFrameOptions]
+}
+
 type PageHomeCta {
   headline: String
   sub: String
@@ -191,6 +211,8 @@ type PageHome implements Node & Document {
   how: PageHomeHow
   criteria: PageHomeCriteria
   promise: PageHomePromise
+  kairosStory: PageHomeKairosStory
+  decisionFrame: PageHomeDecisionFrame
   cta: PageHomeCta
   id: ID!
   _sys: SystemInfo!
@@ -258,6 +280,31 @@ input PageHomePromiseFilter {
   items: StringFilter
 }
 
+input PageHomeKairosStoryFilter {
+  eyebrow: StringFilter
+  headline: StringFilter
+  definition: StringFilter
+  body: StringFilter
+}
+
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
+input PageHomeDecisionFrameOptionsFilter {
+  title: StringFilter
+  description: StringFilter
+  bullets: StringFilter
+  isHighlighted: BooleanFilter
+}
+
+input PageHomeDecisionFrameFilter {
+  label: StringFilter
+  headline: StringFilter
+  options: PageHomeDecisionFrameOptionsFilter
+}
+
 input PageHomeCtaFilter {
   headline: StringFilter
   sub: StringFilter
@@ -271,6 +318,8 @@ input PageHomeFilter {
   how: PageHomeHowFilter
   criteria: PageHomeCriteriaFilter
   promise: PageHomePromiseFilter
+  kairosStory: PageHomeKairosStoryFilter
+  decisionFrame: PageHomeDecisionFrameFilter
   cta: PageHomeCtaFilter
 }
 
@@ -374,6 +423,26 @@ input PageHomePromiseMutation {
   items: [String]
 }
 
+input PageHomeKairosStoryMutation {
+  eyebrow: String
+  headline: String
+  definition: String
+  body: String
+}
+
+input PageHomeDecisionFrameOptionsMutation {
+  title: String
+  description: String
+  bullets: [String]
+  isHighlighted: Boolean
+}
+
+input PageHomeDecisionFrameMutation {
+  label: String
+  headline: String
+  options: [PageHomeDecisionFrameOptionsMutation]
+}
+
 input PageHomeCtaMutation {
   headline: String
   sub: String
@@ -387,6 +456,8 @@ input PageHomeMutation {
   how: PageHomeHowMutation
   criteria: PageHomeCriteriaMutation
   promise: PageHomePromiseMutation
+  kairosStory: PageHomeKairosStoryMutation
+  decisionFrame: PageHomeDecisionFrameMutation
   cta: PageHomeCtaMutation
 }
 
