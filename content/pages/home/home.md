@@ -123,8 +123,9 @@ promise:
 cta:
   backgroundColor: purple
   headline: |
-    Ready to talk about
-    your *next chapter?*
+    Ready to talk 
+    about your
+    *next chapter?*
   sub: No pressure. No NDAs to start. Just an honest conversation about your business and what comes next.
   buttonText: Start a Conversation
   contactEmail: hello@kairos.capital

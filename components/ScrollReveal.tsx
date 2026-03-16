@@ -5,6 +5,13 @@ import { useEffect } from 'react'
 export default function ScrollReveal() {
   useEffect(() => {
     const reveals = document.querySelectorAll('.reveal')
+
+    // In TinaCMS admin iframe, show everything immediately so edits are always visible
+    if (window.parent !== window) {
+      reveals.forEach((el) => el.classList.add('visible'))
+      return
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {

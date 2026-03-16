@@ -14,6 +14,7 @@ const defaultData: CtaData = {
 }
 
 import { tinaField } from 'tinacms/dist/react'
+import ContactForm from './ContactForm'
 
 const DARK_BG = new Set(['purple', 'purple-dark', 'red', 'blue', 'ink', 'stone', 'black'])
 function bgTheme(color?: string) { return color ? (DARK_BG.has(color) ? ' theme-dark' : ' theme-light') : '' }
@@ -25,7 +26,6 @@ export default function CtaSection({ data, tinaFieldId }: { data?: CtaData; tina
   const headlineHtml = (d.headline || defaultData.headline!)
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
     .replace(/\n/g, '<br />')
-  const mailto = d.contactEmail ? `mailto:${d.contactEmail}` : 'mailto:hello@kairos.capital'
 
   return (
     <section className={`cta-section${bgTheme(d.backgroundColor)}`} id="contact" style={bgStyle} data-tina-field={tinaFieldId}>
@@ -33,9 +33,7 @@ export default function CtaSection({ data, tinaFieldId }: { data?: CtaData; tina
         <div className="reveal">
           <h2 className="cta-headline" data-tina-field={tinaData ? tinaField(tinaData, 'headline') : undefined} dangerouslySetInnerHTML={{ __html: headlineHtml }} />
           <p className="cta-sub" data-tina-field={tinaData ? tinaField(tinaData, 'sub') : undefined}>{d.sub}</p>
-          <a href={mailto} className="btn-primary" data-tina-field={tinaData ? tinaField(tinaData, 'buttonText') : undefined}>
-            {d.buttonText}
-          </a>
+          <ContactForm contactEmail={d.contactEmail} />
         </div>
       </div>
     </section>
