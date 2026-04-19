@@ -59,7 +59,7 @@ criteria:
     the right *fit?*
   items:
     - title: Business Size
-      description: $250K–$2M+ in annual earnings (EBITDA). Profitable businesses with proven models and room to grow.
+      description: $250K–$2M+ in annual earnings with consistent (EBITDA). Profitable businesses with proven models and room to grow.
     - title: Ownership Structure
       description: Founder-led or family-owned. We partner with owners ready to transition to their next chapter.
     - title: Industries
