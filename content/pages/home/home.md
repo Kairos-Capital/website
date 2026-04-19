@@ -37,7 +37,7 @@ how:
   headline: |
     A clear path from
     conversation to close.
-  description: 'We''ve streamlined the acquisition process to be transparent, respectful of your time, and free from unnecessary complexity. Most deals close in 60 days or less.'
+  description: 'We''ve streamlined the acquisition process to be transparent, respectful of your time, and free from unnecessary complexity. Most deals close in 60 to 90 days or less.'
   steps:
     - number: '01'
       title: Conversation
