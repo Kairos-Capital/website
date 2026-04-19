@@ -69,7 +69,7 @@ criteria:
     - title: Customer Base
       description: Recurring or repeat revenue preferred. Businesses where customers keep coming back.
     - title: Geography
-      description: 'Georgia initially, expanding regionally. We''re building our portfolio close to home first.'
+      description: 'We are based in Georgia and focus first on opportunities in our home market, while also pursuing select investments across the Southeast.'
     - title: Deal Type
       description: 'We buy to own, not to flip or break apart. Our goal is to provide a long term home where your business can continue to grow and endure.'
 promise:
