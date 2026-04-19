@@ -84,7 +84,9 @@ kairosStory:
     The *right* moment.
   definition: Greek (καιρός) — the right and opportune moment
   body: |
-    Every great business reaches a defining moment. The founder who built it feels the weight of what comes next. The employees wonder if their leader will stay. The customers sense change in the air. The question isn't whether that moment comes — it's whether the right partner is there when it does. That's why we exist. That's what Kairos means: recognizing the right moment and acting with purpose, integrity, and respect for what you've built.
+    Every great business reaches a defining moment. The founder who built it feels the weight. The employees wonder if their leader will stay. The customers sense change in the air. The question isn't whether that moment comes, it's whether the right partner and support is there when it does. 
+
+    That's why we exist. We recognize the weight of that moment and bring the care, experience, and long-term mindset to navigate it the right way.
 decisionFrame:
   label: Your Options
   headline: |
