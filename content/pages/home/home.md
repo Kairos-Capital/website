@@ -23,7 +23,18 @@ about:
     A different kind of
     *acquirer.*
   paragraphs:
-    - 'Most buyers see businesses as assets to extract value from. We see them differently — as communities of people, relationships built over years, and reputations earned through hard work. When we acquire a business, we''re making a long-term commitment. To the employees who depend on it. To the customers who trust it. To the founder who built it. We don''t flip. We steward. Kairos is built on the belief that the right moment — and the right partner — can turn a transition into a legacy.'
+    - |-
+      Most buyers see businesses as assets. We see them differently.
+
+      Communities. Relationships. Reputations built over time.
+
+      When we acquire a business, we make a long term commitment to the people who depend on it and the legacy behind it.
+
+      We do not flip businesses. We steward them.
+
+      And we bring the experience, operational discipline, and leadership needed to help them grow and endure without losing what made them great.
+
+      Kairos is built on the belief that the right partner, at the right moment, can turn a transition into a legacy.
 how:
   backgroundColor: light
   label: Our Process
