@@ -63,7 +63,7 @@ criteria:
     - title: Ownership Structure
       description: Founder-led or family-owned. We partner with owners ready to transition to their next chapter.
     - title: Industries
-      description: 'Home services, B2B services, specialty trades, light industrial, and logistics. We focus on fundamentals, not sectors.'
+      description: 'We invest across home services, B2B services, specialty trades, light industrial, niche SaaS, and logistics. Our focus is not on chasing sectors, but on identifying businesses with strong fundamentals, durable demand, and cultures worth preserving.'
     - title: Business History
       description: Established businesses with loyal customer bases and reputations built over years of hard work.
     - title: Customer Base
