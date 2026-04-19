@@ -24,15 +24,11 @@ about:
     *acquirer.*
   paragraphs:
     - |-
-      Most buyers see businesses as assets. We see them differently.
+      Most buyers see businesses as assets. We see them differently: Communities. Relationships. Reputations built over time.
 
-      Communities. Relationships. Reputations built over time.
+      When we acquire a business, we make a long term commitment to the people who depend on it and the legacy behind it. We do not flip businesses. We steward them.
 
-      When we acquire a business, we make a long term commitment to the people who depend on it and the legacy behind it.
-
-      We do not flip businesses. We steward them.
-
-      And we bring the experience, operational discipline, and leadership needed to help them grow and endure without losing what made them great.
+      We bring the experience, operational discipline, and leadership needed to help them grow and endure without losing what made them great.
 
       Kairos is built on the belief that the right partner, at the right moment, can turn a transition into a legacy.
 how:
