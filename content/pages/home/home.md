@@ -47,7 +47,7 @@ how:
       body: 'If it makes sense on both sides, we move quickly to a clear, fair LOI. No drawn-out negotiations. No surprises.'
     - number: '03'
       title: Diligence
-      body: 'A focused, respectful review of your financials and operations. We ask for what we need — nothing more.'
+      body: 'A focused, respectful review of your financials and operations. We ask for what we need, nothing more.'
     - number: '04'
       title: Close & Transition
       body: 'We close, you get paid, and we work together on a thoughtful transition that protects what you''ve built.'
@@ -71,7 +71,7 @@ criteria:
     - title: Geography
       description: 'Georgia initially, expanding regionally. We''re building our portfolio close to home first.'
     - title: Deal Type
-      description: 'We buy to own — no flips, no breakups. This is a permanent home for your business.'
+      description: 'We buy to own, not to flip or break apart. Our goal is to provide a long term home where your business can continue to grow and endure.'
 promise:
   backgroundColor: green
   headline: |
