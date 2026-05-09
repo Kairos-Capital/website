@@ -223,12 +223,6 @@ export type PostConnection = Connection & {
   edges?: Maybe<Array<Maybe<PostConnectionEdges>>>;
 };
 
-export type PageHomeHeroStats = {
-  __typename?: 'PageHomeHeroStats';
-  number?: Maybe<Scalars['String']['output']>;
-  label?: Maybe<Scalars['String']['output']>;
-};
-
 export type PageHomeHero = {
   __typename?: 'PageHomeHero';
   eyebrow?: Maybe<Scalars['String']['output']>;
@@ -236,22 +230,71 @@ export type PageHomeHero = {
   sub?: Maybe<Scalars['String']['output']>;
   primaryButtonText?: Maybe<Scalars['String']['output']>;
   primaryButtonHref?: Maybe<Scalars['String']['output']>;
-  ghostButtonText?: Maybe<Scalars['String']['output']>;
-  ghostButtonHref?: Maybe<Scalars['String']['output']>;
-  stats?: Maybe<Array<Maybe<PageHomeHeroStats>>>;
 };
 
-export type PageHomeAbout = {
-  __typename?: 'PageHomeAbout';
-  backgroundColor?: Maybe<Scalars['String']['output']>;
+export type PageHomePhilosophyTabsRightMomentWeightPoints = {
+  __typename?: 'PageHomePhilosophyTabsRightMomentWeightPoints';
+  icon?: Maybe<Scalars['String']['output']>;
+  text?: Maybe<Scalars['String']['output']>;
+};
+
+export type PageHomePhilosophyTabsRightMoment = {
+  __typename?: 'PageHomePhilosophyTabsRightMoment';
+  tabTitle?: Maybe<Scalars['String']['output']>;
+  topEyebrow?: Maybe<Scalars['String']['output']>;
+  eyebrow?: Maybe<Scalars['String']['output']>;
+  headline?: Maybe<Scalars['String']['output']>;
+  definition?: Maybe<Scalars['String']['output']>;
+  weightPoints?: Maybe<Array<Maybe<PageHomePhilosophyTabsRightMomentWeightPoints>>>;
+  quoteIntro?: Maybe<Scalars['String']['output']>;
+  quoteCallout?: Maybe<Scalars['String']['output']>;
+  quoteOutro?: Maybe<Scalars['String']['output']>;
+};
+
+export type PageHomePhilosophyTabsBuiltDifferentlyPrinciples = {
+  __typename?: 'PageHomePhilosophyTabsBuiltDifferentlyPrinciples';
+  icon?: Maybe<Scalars['String']['output']>;
+  text?: Maybe<Scalars['String']['output']>;
+};
+
+export type PageHomePhilosophyTabsBuiltDifferently = {
+  __typename?: 'PageHomePhilosophyTabsBuiltDifferently';
+  tabTitle?: Maybe<Scalars['String']['output']>;
   label?: Maybe<Scalars['String']['output']>;
   headline?: Maybe<Scalars['String']['output']>;
-  paragraphs?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  leadParagraph?: Maybe<Scalars['String']['output']>;
+  principles?: Maybe<Array<Maybe<PageHomePhilosophyTabsBuiltDifferentlyPrinciples>>>;
+  pullQuoteIntro?: Maybe<Scalars['String']['output']>;
+  pullQuoteCallout?: Maybe<Scalars['String']['output']>;
+};
+
+export type PageHomePhilosophyTabsInvestmentPhilosophyOptions = {
+  __typename?: 'PageHomePhilosophyTabsInvestmentPhilosophyOptions';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  bullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  isHighlighted?: Maybe<Scalars['Boolean']['output']>;
+};
+
+export type PageHomePhilosophyTabsInvestmentPhilosophy = {
+  __typename?: 'PageHomePhilosophyTabsInvestmentPhilosophy';
+  tabTitle?: Maybe<Scalars['String']['output']>;
+  label?: Maybe<Scalars['String']['output']>;
+  headline?: Maybe<Scalars['String']['output']>;
+  options?: Maybe<Array<Maybe<PageHomePhilosophyTabsInvestmentPhilosophyOptions>>>;
+};
+
+export type PageHomePhilosophyTabs = {
+  __typename?: 'PageHomePhilosophyTabs';
+  rightMoment?: Maybe<PageHomePhilosophyTabsRightMoment>;
+  builtDifferently?: Maybe<PageHomePhilosophyTabsBuiltDifferently>;
+  investmentPhilosophy?: Maybe<PageHomePhilosophyTabsInvestmentPhilosophy>;
 };
 
 export type PageHomeHowSteps = {
   __typename?: 'PageHomeHowSteps';
   number?: Maybe<Scalars['String']['output']>;
+  icon?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   body?: Maybe<Scalars['String']['output']>;
 };
@@ -263,51 +306,32 @@ export type PageHomeHow = {
   headline?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   steps?: Maybe<Array<Maybe<PageHomeHowSteps>>>;
+  throughline?: Maybe<Scalars['String']['output']>;
 };
 
-export type PageHomeCriteriaItems = {
-  __typename?: 'PageHomeCriteriaItems';
+export type PageHomePartnershipCriteriaItems = {
+  __typename?: 'PageHomePartnershipCriteriaItems';
+  icon?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
 };
 
-export type PageHomeCriteria = {
-  __typename?: 'PageHomeCriteria';
-  backgroundColor?: Maybe<Scalars['String']['output']>;
-  label?: Maybe<Scalars['String']['output']>;
-  headline?: Maybe<Scalars['String']['output']>;
-  items?: Maybe<Array<Maybe<PageHomeCriteriaItems>>>;
-};
-
-export type PageHomePromise = {
-  __typename?: 'PageHomePromise';
-  backgroundColor?: Maybe<Scalars['String']['output']>;
-  headline?: Maybe<Scalars['String']['output']>;
-  items?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-};
-
-export type PageHomeKairosStory = {
-  __typename?: 'PageHomeKairosStory';
-  backgroundColor?: Maybe<Scalars['String']['output']>;
-  eyebrow?: Maybe<Scalars['String']['output']>;
-  headline?: Maybe<Scalars['String']['output']>;
-  definition?: Maybe<Scalars['String']['output']>;
-  body?: Maybe<Scalars['String']['output']>;
-};
-
-export type PageHomeDecisionFrameOptions = {
-  __typename?: 'PageHomeDecisionFrameOptions';
+export type PageHomePartnershipPromiseItems = {
+  __typename?: 'PageHomePartnershipPromiseItems';
+  icon?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
-  bullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  isHighlighted?: Maybe<Scalars['Boolean']['output']>;
 };
 
-export type PageHomeDecisionFrame = {
-  __typename?: 'PageHomeDecisionFrame';
-  label?: Maybe<Scalars['String']['output']>;
+export type PageHomePartnership = {
+  __typename?: 'PageHomePartnership';
   headline?: Maybe<Scalars['String']['output']>;
-  options?: Maybe<Array<Maybe<PageHomeDecisionFrameOptions>>>;
+  criteriaLabel?: Maybe<Scalars['String']['output']>;
+  criteriaItems?: Maybe<Array<Maybe<PageHomePartnershipCriteriaItems>>>;
+  promiseLabel?: Maybe<Scalars['String']['output']>;
+  promiseItems?: Maybe<Array<Maybe<PageHomePartnershipPromiseItems>>>;
+  bottomLine1?: Maybe<Scalars['String']['output']>;
+  bottomLine2?: Maybe<Scalars['String']['output']>;
 };
 
 export type PageHomeCta = {
@@ -322,12 +346,9 @@ export type PageHomeCta = {
 export type PageHome = Node & Document & {
   __typename?: 'PageHome';
   hero?: Maybe<PageHomeHero>;
-  about?: Maybe<PageHomeAbout>;
+  philosophyTabs?: Maybe<PageHomePhilosophyTabs>;
   how?: Maybe<PageHomeHow>;
-  criteria?: Maybe<PageHomeCriteria>;
-  promise?: Maybe<PageHomePromise>;
-  kairosStory?: Maybe<PageHomeKairosStory>;
-  decisionFrame?: Maybe<PageHomeDecisionFrame>;
+  partnership?: Maybe<PageHomePartnership>;
   cta?: Maybe<PageHomeCta>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -345,31 +366,74 @@ export type PageDefault = Node & Document & {
 
 export type Page = PageHome | PageDefault;
 
-export type PageHomeHeroStatsFilter = {
-  number?: InputMaybe<StringFilter>;
-  label?: InputMaybe<StringFilter>;
-};
-
 export type PageHomeHeroFilter = {
   eyebrow?: InputMaybe<StringFilter>;
   headline?: InputMaybe<StringFilter>;
   sub?: InputMaybe<StringFilter>;
   primaryButtonText?: InputMaybe<StringFilter>;
   primaryButtonHref?: InputMaybe<StringFilter>;
-  ghostButtonText?: InputMaybe<StringFilter>;
-  ghostButtonHref?: InputMaybe<StringFilter>;
-  stats?: InputMaybe<PageHomeHeroStatsFilter>;
 };
 
-export type PageHomeAboutFilter = {
-  backgroundColor?: InputMaybe<StringFilter>;
+export type PageHomePhilosophyTabsRightMomentWeightPointsFilter = {
+  icon?: InputMaybe<StringFilter>;
+  text?: InputMaybe<StringFilter>;
+};
+
+export type PageHomePhilosophyTabsRightMomentFilter = {
+  tabTitle?: InputMaybe<StringFilter>;
+  topEyebrow?: InputMaybe<StringFilter>;
+  eyebrow?: InputMaybe<StringFilter>;
+  headline?: InputMaybe<StringFilter>;
+  definition?: InputMaybe<StringFilter>;
+  weightPoints?: InputMaybe<PageHomePhilosophyTabsRightMomentWeightPointsFilter>;
+  quoteIntro?: InputMaybe<StringFilter>;
+  quoteCallout?: InputMaybe<StringFilter>;
+  quoteOutro?: InputMaybe<StringFilter>;
+};
+
+export type PageHomePhilosophyTabsBuiltDifferentlyPrinciplesFilter = {
+  icon?: InputMaybe<StringFilter>;
+  text?: InputMaybe<StringFilter>;
+};
+
+export type PageHomePhilosophyTabsBuiltDifferentlyFilter = {
+  tabTitle?: InputMaybe<StringFilter>;
   label?: InputMaybe<StringFilter>;
   headline?: InputMaybe<StringFilter>;
-  paragraphs?: InputMaybe<StringFilter>;
+  leadParagraph?: InputMaybe<StringFilter>;
+  principles?: InputMaybe<PageHomePhilosophyTabsBuiltDifferentlyPrinciplesFilter>;
+  pullQuoteIntro?: InputMaybe<StringFilter>;
+  pullQuoteCallout?: InputMaybe<StringFilter>;
+};
+
+export type BooleanFilter = {
+  eq?: InputMaybe<Scalars['Boolean']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type PageHomePhilosophyTabsInvestmentPhilosophyOptionsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  bullets?: InputMaybe<StringFilter>;
+  isHighlighted?: InputMaybe<BooleanFilter>;
+};
+
+export type PageHomePhilosophyTabsInvestmentPhilosophyFilter = {
+  tabTitle?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+  headline?: InputMaybe<StringFilter>;
+  options?: InputMaybe<PageHomePhilosophyTabsInvestmentPhilosophyOptionsFilter>;
+};
+
+export type PageHomePhilosophyTabsFilter = {
+  rightMoment?: InputMaybe<PageHomePhilosophyTabsRightMomentFilter>;
+  builtDifferently?: InputMaybe<PageHomePhilosophyTabsBuiltDifferentlyFilter>;
+  investmentPhilosophy?: InputMaybe<PageHomePhilosophyTabsInvestmentPhilosophyFilter>;
 };
 
 export type PageHomeHowStepsFilter = {
   number?: InputMaybe<StringFilter>;
+  icon?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
   body?: InputMaybe<StringFilter>;
 };
@@ -380,50 +444,29 @@ export type PageHomeHowFilter = {
   headline?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   steps?: InputMaybe<PageHomeHowStepsFilter>;
+  throughline?: InputMaybe<StringFilter>;
 };
 
-export type PageHomeCriteriaItemsFilter = {
+export type PageHomePartnershipCriteriaItemsFilter = {
+  icon?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
 };
 
-export type PageHomeCriteriaFilter = {
-  backgroundColor?: InputMaybe<StringFilter>;
-  label?: InputMaybe<StringFilter>;
-  headline?: InputMaybe<StringFilter>;
-  items?: InputMaybe<PageHomeCriteriaItemsFilter>;
-};
-
-export type PageHomePromiseFilter = {
-  backgroundColor?: InputMaybe<StringFilter>;
-  headline?: InputMaybe<StringFilter>;
-  items?: InputMaybe<StringFilter>;
-};
-
-export type PageHomeKairosStoryFilter = {
-  backgroundColor?: InputMaybe<StringFilter>;
-  eyebrow?: InputMaybe<StringFilter>;
-  headline?: InputMaybe<StringFilter>;
-  definition?: InputMaybe<StringFilter>;
-  body?: InputMaybe<StringFilter>;
-};
-
-export type BooleanFilter = {
-  eq?: InputMaybe<Scalars['Boolean']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type PageHomeDecisionFrameOptionsFilter = {
+export type PageHomePartnershipPromiseItemsFilter = {
+  icon?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
-  bullets?: InputMaybe<StringFilter>;
-  isHighlighted?: InputMaybe<BooleanFilter>;
 };
 
-export type PageHomeDecisionFrameFilter = {
-  label?: InputMaybe<StringFilter>;
+export type PageHomePartnershipFilter = {
   headline?: InputMaybe<StringFilter>;
-  options?: InputMaybe<PageHomeDecisionFrameOptionsFilter>;
+  criteriaLabel?: InputMaybe<StringFilter>;
+  criteriaItems?: InputMaybe<PageHomePartnershipCriteriaItemsFilter>;
+  promiseLabel?: InputMaybe<StringFilter>;
+  promiseItems?: InputMaybe<PageHomePartnershipPromiseItemsFilter>;
+  bottomLine1?: InputMaybe<StringFilter>;
+  bottomLine2?: InputMaybe<StringFilter>;
 };
 
 export type PageHomeCtaFilter = {
@@ -436,12 +479,9 @@ export type PageHomeCtaFilter = {
 
 export type PageHomeFilter = {
   hero?: InputMaybe<PageHomeHeroFilter>;
-  about?: InputMaybe<PageHomeAboutFilter>;
+  philosophyTabs?: InputMaybe<PageHomePhilosophyTabsFilter>;
   how?: InputMaybe<PageHomeHowFilter>;
-  criteria?: InputMaybe<PageHomeCriteriaFilter>;
-  promise?: InputMaybe<PageHomePromiseFilter>;
-  kairosStory?: InputMaybe<PageHomeKairosStoryFilter>;
-  decisionFrame?: InputMaybe<PageHomeDecisionFrameFilter>;
+  partnership?: InputMaybe<PageHomePartnershipFilter>;
   cta?: InputMaybe<PageHomeCtaFilter>;
 };
 
@@ -554,31 +594,69 @@ export type PostMutation = {
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
-export type PageHomeHeroStatsMutation = {
-  number?: InputMaybe<Scalars['String']['input']>;
-  label?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type PageHomeHeroMutation = {
   eyebrow?: InputMaybe<Scalars['String']['input']>;
   headline?: InputMaybe<Scalars['String']['input']>;
   sub?: InputMaybe<Scalars['String']['input']>;
   primaryButtonText?: InputMaybe<Scalars['String']['input']>;
   primaryButtonHref?: InputMaybe<Scalars['String']['input']>;
-  ghostButtonText?: InputMaybe<Scalars['String']['input']>;
-  ghostButtonHref?: InputMaybe<Scalars['String']['input']>;
-  stats?: InputMaybe<Array<InputMaybe<PageHomeHeroStatsMutation>>>;
 };
 
-export type PageHomeAboutMutation = {
-  backgroundColor?: InputMaybe<Scalars['String']['input']>;
+export type PageHomePhilosophyTabsRightMomentWeightPointsMutation = {
+  icon?: InputMaybe<Scalars['String']['input']>;
+  text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PageHomePhilosophyTabsRightMomentMutation = {
+  tabTitle?: InputMaybe<Scalars['String']['input']>;
+  topEyebrow?: InputMaybe<Scalars['String']['input']>;
+  eyebrow?: InputMaybe<Scalars['String']['input']>;
+  headline?: InputMaybe<Scalars['String']['input']>;
+  definition?: InputMaybe<Scalars['String']['input']>;
+  weightPoints?: InputMaybe<Array<InputMaybe<PageHomePhilosophyTabsRightMomentWeightPointsMutation>>>;
+  quoteIntro?: InputMaybe<Scalars['String']['input']>;
+  quoteCallout?: InputMaybe<Scalars['String']['input']>;
+  quoteOutro?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PageHomePhilosophyTabsBuiltDifferentlyPrinciplesMutation = {
+  icon?: InputMaybe<Scalars['String']['input']>;
+  text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PageHomePhilosophyTabsBuiltDifferentlyMutation = {
+  tabTitle?: InputMaybe<Scalars['String']['input']>;
   label?: InputMaybe<Scalars['String']['input']>;
   headline?: InputMaybe<Scalars['String']['input']>;
-  paragraphs?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  leadParagraph?: InputMaybe<Scalars['String']['input']>;
+  principles?: InputMaybe<Array<InputMaybe<PageHomePhilosophyTabsBuiltDifferentlyPrinciplesMutation>>>;
+  pullQuoteIntro?: InputMaybe<Scalars['String']['input']>;
+  pullQuoteCallout?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PageHomePhilosophyTabsInvestmentPhilosophyOptionsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  bullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  isHighlighted?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type PageHomePhilosophyTabsInvestmentPhilosophyMutation = {
+  tabTitle?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  headline?: InputMaybe<Scalars['String']['input']>;
+  options?: InputMaybe<Array<InputMaybe<PageHomePhilosophyTabsInvestmentPhilosophyOptionsMutation>>>;
+};
+
+export type PageHomePhilosophyTabsMutation = {
+  rightMoment?: InputMaybe<PageHomePhilosophyTabsRightMomentMutation>;
+  builtDifferently?: InputMaybe<PageHomePhilosophyTabsBuiltDifferentlyMutation>;
+  investmentPhilosophy?: InputMaybe<PageHomePhilosophyTabsInvestmentPhilosophyMutation>;
 };
 
 export type PageHomeHowStepsMutation = {
   number?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   body?: InputMaybe<Scalars['String']['input']>;
 };
@@ -589,45 +667,29 @@ export type PageHomeHowMutation = {
   headline?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   steps?: InputMaybe<Array<InputMaybe<PageHomeHowStepsMutation>>>;
+  throughline?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type PageHomeCriteriaItemsMutation = {
+export type PageHomePartnershipCriteriaItemsMutation = {
+  icon?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type PageHomeCriteriaMutation = {
-  backgroundColor?: InputMaybe<Scalars['String']['input']>;
-  label?: InputMaybe<Scalars['String']['input']>;
-  headline?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<PageHomeCriteriaItemsMutation>>>;
-};
-
-export type PageHomePromiseMutation = {
-  backgroundColor?: InputMaybe<Scalars['String']['input']>;
-  headline?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type PageHomeKairosStoryMutation = {
-  backgroundColor?: InputMaybe<Scalars['String']['input']>;
-  eyebrow?: InputMaybe<Scalars['String']['input']>;
-  headline?: InputMaybe<Scalars['String']['input']>;
-  definition?: InputMaybe<Scalars['String']['input']>;
-  body?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PageHomeDecisionFrameOptionsMutation = {
+export type PageHomePartnershipPromiseItemsMutation = {
+  icon?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
-  bullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  isHighlighted?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type PageHomeDecisionFrameMutation = {
-  label?: InputMaybe<Scalars['String']['input']>;
+export type PageHomePartnershipMutation = {
   headline?: InputMaybe<Scalars['String']['input']>;
-  options?: InputMaybe<Array<InputMaybe<PageHomeDecisionFrameOptionsMutation>>>;
+  criteriaLabel?: InputMaybe<Scalars['String']['input']>;
+  criteriaItems?: InputMaybe<Array<InputMaybe<PageHomePartnershipCriteriaItemsMutation>>>;
+  promiseLabel?: InputMaybe<Scalars['String']['input']>;
+  promiseItems?: InputMaybe<Array<InputMaybe<PageHomePartnershipPromiseItemsMutation>>>;
+  bottomLine1?: InputMaybe<Scalars['String']['input']>;
+  bottomLine2?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type PageHomeCtaMutation = {
@@ -640,12 +702,9 @@ export type PageHomeCtaMutation = {
 
 export type PageHomeMutation = {
   hero?: InputMaybe<PageHomeHeroMutation>;
-  about?: InputMaybe<PageHomeAboutMutation>;
+  philosophyTabs?: InputMaybe<PageHomePhilosophyTabsMutation>;
   how?: InputMaybe<PageHomeHowMutation>;
-  criteria?: InputMaybe<PageHomeCriteriaMutation>;
-  promise?: InputMaybe<PageHomePromiseMutation>;
-  kairosStory?: InputMaybe<PageHomeKairosStoryMutation>;
-  decisionFrame?: InputMaybe<PageHomeDecisionFrameMutation>;
+  partnership?: InputMaybe<PageHomePartnershipMutation>;
   cta?: InputMaybe<PageHomeCtaMutation>;
 };
 
@@ -661,7 +720,7 @@ export type PageMutation = {
 
 export type PostPartsFragment = { __typename: 'Post', title: string, body?: any | null };
 
-type PageParts_PageHome_Fragment = { __typename: 'PageHome', hero?: { __typename: 'PageHomeHero', eyebrow?: string | null, headline?: string | null, sub?: string | null, primaryButtonText?: string | null, primaryButtonHref?: string | null, ghostButtonText?: string | null, ghostButtonHref?: string | null, stats?: Array<{ __typename: 'PageHomeHeroStats', number?: string | null, label?: string | null } | null> | null } | null, about?: { __typename: 'PageHomeAbout', backgroundColor?: string | null, label?: string | null, headline?: string | null, paragraphs?: Array<string | null> | null } | null, how?: { __typename: 'PageHomeHow', backgroundColor?: string | null, label?: string | null, headline?: string | null, description?: string | null, steps?: Array<{ __typename: 'PageHomeHowSteps', number?: string | null, title?: string | null, body?: string | null } | null> | null } | null, criteria?: { __typename: 'PageHomeCriteria', backgroundColor?: string | null, label?: string | null, headline?: string | null, items?: Array<{ __typename: 'PageHomeCriteriaItems', title?: string | null, description?: string | null } | null> | null } | null, promise?: { __typename: 'PageHomePromise', backgroundColor?: string | null, headline?: string | null, items?: Array<string | null> | null } | null, kairosStory?: { __typename: 'PageHomeKairosStory', backgroundColor?: string | null, eyebrow?: string | null, headline?: string | null, definition?: string | null, body?: string | null } | null, decisionFrame?: { __typename: 'PageHomeDecisionFrame', label?: string | null, headline?: string | null, options?: Array<{ __typename: 'PageHomeDecisionFrameOptions', title?: string | null, description?: string | null, bullets?: Array<string | null> | null, isHighlighted?: boolean | null } | null> | null } | null, cta?: { __typename: 'PageHomeCta', backgroundColor?: string | null, headline?: string | null, sub?: string | null, buttonText?: string | null, contactEmail?: string | null } | null };
+type PageParts_PageHome_Fragment = { __typename: 'PageHome', hero?: { __typename: 'PageHomeHero', eyebrow?: string | null, headline?: string | null, sub?: string | null, primaryButtonText?: string | null, primaryButtonHref?: string | null } | null, philosophyTabs?: { __typename: 'PageHomePhilosophyTabs', rightMoment?: { __typename: 'PageHomePhilosophyTabsRightMoment', tabTitle?: string | null, topEyebrow?: string | null, eyebrow?: string | null, headline?: string | null, definition?: string | null, quoteIntro?: string | null, quoteCallout?: string | null, quoteOutro?: string | null, weightPoints?: Array<{ __typename: 'PageHomePhilosophyTabsRightMomentWeightPoints', icon?: string | null, text?: string | null } | null> | null } | null, builtDifferently?: { __typename: 'PageHomePhilosophyTabsBuiltDifferently', tabTitle?: string | null, label?: string | null, headline?: string | null, leadParagraph?: string | null, pullQuoteIntro?: string | null, pullQuoteCallout?: string | null, principles?: Array<{ __typename: 'PageHomePhilosophyTabsBuiltDifferentlyPrinciples', icon?: string | null, text?: string | null } | null> | null } | null, investmentPhilosophy?: { __typename: 'PageHomePhilosophyTabsInvestmentPhilosophy', tabTitle?: string | null, label?: string | null, headline?: string | null, options?: Array<{ __typename: 'PageHomePhilosophyTabsInvestmentPhilosophyOptions', title?: string | null, description?: string | null, bullets?: Array<string | null> | null, isHighlighted?: boolean | null } | null> | null } | null } | null, how?: { __typename: 'PageHomeHow', backgroundColor?: string | null, label?: string | null, headline?: string | null, description?: string | null, throughline?: string | null, steps?: Array<{ __typename: 'PageHomeHowSteps', number?: string | null, icon?: string | null, title?: string | null, body?: string | null } | null> | null } | null, partnership?: { __typename: 'PageHomePartnership', headline?: string | null, criteriaLabel?: string | null, promiseLabel?: string | null, bottomLine1?: string | null, bottomLine2?: string | null, criteriaItems?: Array<{ __typename: 'PageHomePartnershipCriteriaItems', icon?: string | null, title?: string | null, description?: string | null } | null> | null, promiseItems?: Array<{ __typename: 'PageHomePartnershipPromiseItems', icon?: string | null, title?: string | null, description?: string | null } | null> | null } | null, cta?: { __typename: 'PageHomeCta', backgroundColor?: string | null, headline?: string | null, sub?: string | null, buttonText?: string | null, contactEmail?: string | null } | null };
 
 type PageParts_PageDefault_Fragment = { __typename: 'PageDefault', title: string, body?: any | null };
 
@@ -691,7 +750,7 @@ export type PageQueryVariables = Exact<{
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page: { __typename: 'PageHome', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'PageHomeHero', eyebrow?: string | null, headline?: string | null, sub?: string | null, primaryButtonText?: string | null, primaryButtonHref?: string | null, ghostButtonText?: string | null, ghostButtonHref?: string | null, stats?: Array<{ __typename: 'PageHomeHeroStats', number?: string | null, label?: string | null } | null> | null } | null, about?: { __typename: 'PageHomeAbout', backgroundColor?: string | null, label?: string | null, headline?: string | null, paragraphs?: Array<string | null> | null } | null, how?: { __typename: 'PageHomeHow', backgroundColor?: string | null, label?: string | null, headline?: string | null, description?: string | null, steps?: Array<{ __typename: 'PageHomeHowSteps', number?: string | null, title?: string | null, body?: string | null } | null> | null } | null, criteria?: { __typename: 'PageHomeCriteria', backgroundColor?: string | null, label?: string | null, headline?: string | null, items?: Array<{ __typename: 'PageHomeCriteriaItems', title?: string | null, description?: string | null } | null> | null } | null, promise?: { __typename: 'PageHomePromise', backgroundColor?: string | null, headline?: string | null, items?: Array<string | null> | null } | null, kairosStory?: { __typename: 'PageHomeKairosStory', backgroundColor?: string | null, eyebrow?: string | null, headline?: string | null, definition?: string | null, body?: string | null } | null, decisionFrame?: { __typename: 'PageHomeDecisionFrame', label?: string | null, headline?: string | null, options?: Array<{ __typename: 'PageHomeDecisionFrameOptions', title?: string | null, description?: string | null, bullets?: Array<string | null> | null, isHighlighted?: boolean | null } | null> | null } | null, cta?: { __typename: 'PageHomeCta', backgroundColor?: string | null, headline?: string | null, sub?: string | null, buttonText?: string | null, contactEmail?: string | null } | null } | { __typename: 'PageDefault', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type PageQuery = { __typename?: 'Query', page: { __typename: 'PageHome', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'PageHomeHero', eyebrow?: string | null, headline?: string | null, sub?: string | null, primaryButtonText?: string | null, primaryButtonHref?: string | null } | null, philosophyTabs?: { __typename: 'PageHomePhilosophyTabs', rightMoment?: { __typename: 'PageHomePhilosophyTabsRightMoment', tabTitle?: string | null, topEyebrow?: string | null, eyebrow?: string | null, headline?: string | null, definition?: string | null, quoteIntro?: string | null, quoteCallout?: string | null, quoteOutro?: string | null, weightPoints?: Array<{ __typename: 'PageHomePhilosophyTabsRightMomentWeightPoints', icon?: string | null, text?: string | null } | null> | null } | null, builtDifferently?: { __typename: 'PageHomePhilosophyTabsBuiltDifferently', tabTitle?: string | null, label?: string | null, headline?: string | null, leadParagraph?: string | null, pullQuoteIntro?: string | null, pullQuoteCallout?: string | null, principles?: Array<{ __typename: 'PageHomePhilosophyTabsBuiltDifferentlyPrinciples', icon?: string | null, text?: string | null } | null> | null } | null, investmentPhilosophy?: { __typename: 'PageHomePhilosophyTabsInvestmentPhilosophy', tabTitle?: string | null, label?: string | null, headline?: string | null, options?: Array<{ __typename: 'PageHomePhilosophyTabsInvestmentPhilosophyOptions', title?: string | null, description?: string | null, bullets?: Array<string | null> | null, isHighlighted?: boolean | null } | null> | null } | null } | null, how?: { __typename: 'PageHomeHow', backgroundColor?: string | null, label?: string | null, headline?: string | null, description?: string | null, throughline?: string | null, steps?: Array<{ __typename: 'PageHomeHowSteps', number?: string | null, icon?: string | null, title?: string | null, body?: string | null } | null> | null } | null, partnership?: { __typename: 'PageHomePartnership', headline?: string | null, criteriaLabel?: string | null, promiseLabel?: string | null, bottomLine1?: string | null, bottomLine2?: string | null, criteriaItems?: Array<{ __typename: 'PageHomePartnershipCriteriaItems', icon?: string | null, title?: string | null, description?: string | null } | null> | null, promiseItems?: Array<{ __typename: 'PageHomePartnershipPromiseItems', icon?: string | null, title?: string | null, description?: string | null } | null> | null } | null, cta?: { __typename: 'PageHomeCta', backgroundColor?: string | null, headline?: string | null, sub?: string | null, buttonText?: string | null, contactEmail?: string | null } | null } | { __typename: 'PageDefault', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type PageConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -703,7 +762,7 @@ export type PageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PageConnectionEdges', cursor: string, node?: { __typename: 'PageHome', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'PageHomeHero', eyebrow?: string | null, headline?: string | null, sub?: string | null, primaryButtonText?: string | null, primaryButtonHref?: string | null, ghostButtonText?: string | null, ghostButtonHref?: string | null, stats?: Array<{ __typename: 'PageHomeHeroStats', number?: string | null, label?: string | null } | null> | null } | null, about?: { __typename: 'PageHomeAbout', backgroundColor?: string | null, label?: string | null, headline?: string | null, paragraphs?: Array<string | null> | null } | null, how?: { __typename: 'PageHomeHow', backgroundColor?: string | null, label?: string | null, headline?: string | null, description?: string | null, steps?: Array<{ __typename: 'PageHomeHowSteps', number?: string | null, title?: string | null, body?: string | null } | null> | null } | null, criteria?: { __typename: 'PageHomeCriteria', backgroundColor?: string | null, label?: string | null, headline?: string | null, items?: Array<{ __typename: 'PageHomeCriteriaItems', title?: string | null, description?: string | null } | null> | null } | null, promise?: { __typename: 'PageHomePromise', backgroundColor?: string | null, headline?: string | null, items?: Array<string | null> | null } | null, kairosStory?: { __typename: 'PageHomeKairosStory', backgroundColor?: string | null, eyebrow?: string | null, headline?: string | null, definition?: string | null, body?: string | null } | null, decisionFrame?: { __typename: 'PageHomeDecisionFrame', label?: string | null, headline?: string | null, options?: Array<{ __typename: 'PageHomeDecisionFrameOptions', title?: string | null, description?: string | null, bullets?: Array<string | null> | null, isHighlighted?: boolean | null } | null> | null } | null, cta?: { __typename: 'PageHomeCta', backgroundColor?: string | null, headline?: string | null, sub?: string | null, buttonText?: string | null, contactEmail?: string | null } | null } | { __typename: 'PageDefault', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PageConnectionEdges', cursor: string, node?: { __typename: 'PageHome', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'PageHomeHero', eyebrow?: string | null, headline?: string | null, sub?: string | null, primaryButtonText?: string | null, primaryButtonHref?: string | null } | null, philosophyTabs?: { __typename: 'PageHomePhilosophyTabs', rightMoment?: { __typename: 'PageHomePhilosophyTabsRightMoment', tabTitle?: string | null, topEyebrow?: string | null, eyebrow?: string | null, headline?: string | null, definition?: string | null, quoteIntro?: string | null, quoteCallout?: string | null, quoteOutro?: string | null, weightPoints?: Array<{ __typename: 'PageHomePhilosophyTabsRightMomentWeightPoints', icon?: string | null, text?: string | null } | null> | null } | null, builtDifferently?: { __typename: 'PageHomePhilosophyTabsBuiltDifferently', tabTitle?: string | null, label?: string | null, headline?: string | null, leadParagraph?: string | null, pullQuoteIntro?: string | null, pullQuoteCallout?: string | null, principles?: Array<{ __typename: 'PageHomePhilosophyTabsBuiltDifferentlyPrinciples', icon?: string | null, text?: string | null } | null> | null } | null, investmentPhilosophy?: { __typename: 'PageHomePhilosophyTabsInvestmentPhilosophy', tabTitle?: string | null, label?: string | null, headline?: string | null, options?: Array<{ __typename: 'PageHomePhilosophyTabsInvestmentPhilosophyOptions', title?: string | null, description?: string | null, bullets?: Array<string | null> | null, isHighlighted?: boolean | null } | null> | null } | null } | null, how?: { __typename: 'PageHomeHow', backgroundColor?: string | null, label?: string | null, headline?: string | null, description?: string | null, throughline?: string | null, steps?: Array<{ __typename: 'PageHomeHowSteps', number?: string | null, icon?: string | null, title?: string | null, body?: string | null } | null> | null } | null, partnership?: { __typename: 'PageHomePartnership', headline?: string | null, criteriaLabel?: string | null, promiseLabel?: string | null, bottomLine1?: string | null, bottomLine2?: string | null, criteriaItems?: Array<{ __typename: 'PageHomePartnershipCriteriaItems', icon?: string | null, title?: string | null, description?: string | null } | null> | null, promiseItems?: Array<{ __typename: 'PageHomePartnershipPromiseItems', icon?: string | null, title?: string | null, description?: string | null } | null> | null } | null, cta?: { __typename: 'PageHomeCta', backgroundColor?: string | null, headline?: string | null, sub?: string | null, buttonText?: string | null, contactEmail?: string | null } | null } | { __typename: 'PageDefault', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export const PostPartsFragmentDoc = gql`
     fragment PostParts on Post {
@@ -723,20 +782,52 @@ export const PagePartsFragmentDoc = gql`
       sub
       primaryButtonText
       primaryButtonHref
-      ghostButtonText
-      ghostButtonHref
-      stats {
-        __typename
-        number
-        label
-      }
     }
-    about {
+    philosophyTabs {
       __typename
-      backgroundColor
-      label
-      headline
-      paragraphs
+      rightMoment {
+        __typename
+        tabTitle
+        topEyebrow
+        eyebrow
+        headline
+        definition
+        weightPoints {
+          __typename
+          icon
+          text
+        }
+        quoteIntro
+        quoteCallout
+        quoteOutro
+      }
+      builtDifferently {
+        __typename
+        tabTitle
+        label
+        headline
+        leadParagraph
+        principles {
+          __typename
+          icon
+          text
+        }
+        pullQuoteIntro
+        pullQuoteCallout
+      }
+      investmentPhilosophy {
+        __typename
+        tabTitle
+        label
+        headline
+        options {
+          __typename
+          title
+          description
+          bullets
+          isHighlighted
+        }
+      }
     }
     how {
       __typename
@@ -747,46 +838,31 @@ export const PagePartsFragmentDoc = gql`
       steps {
         __typename
         number
+        icon
         title
         body
       }
+      throughline
     }
-    criteria {
+    partnership {
       __typename
-      backgroundColor
-      label
       headline
-      items {
+      criteriaLabel
+      criteriaItems {
         __typename
+        icon
         title
         description
       }
-    }
-    promise {
-      __typename
-      backgroundColor
-      headline
-      items
-    }
-    kairosStory {
-      __typename
-      backgroundColor
-      eyebrow
-      headline
-      definition
-      body
-    }
-    decisionFrame {
-      __typename
-      label
-      headline
-      options {
+      promiseLabel
+      promiseItems {
         __typename
+        icon
         title
         description
-        bullets
-        isHighlighted
       }
+      bottomLine1
+      bottomLine2
     }
     cta {
       __typename

@@ -1,7 +1,7 @@
-interface Stat {
-  number?: string
-  label?: string
-}
+'use client'
+
+import { tinaField } from 'tinacms/dist/react'
+import type { PhilosophyTabKey } from './PhilosophyTabs'
 
 interface HeroData {
   eyebrow?: string
@@ -9,27 +9,20 @@ interface HeroData {
   sub?: string
   primaryButtonText?: string
   primaryButtonHref?: string
-  ghostButtonText?: string
-  ghostButtonHref?: string
-  stats?: Stat[]
 }
 
 const defaultHero: HeroData = {
   eyebrow: 'Business Acquisition',
   headline: 'We buy businesses.\nTo build *legacies*.',
   sub: 'Kairos Capital acquires great businesses from founders ready for their next chapter — and stewards them for the long term.',
-  primaryButtonText: 'Sell Your Business',
+  primaryButtonText: "Let's Talk.",
   primaryButtonHref: '#contact',
-  ghostButtonText: 'How It Works',
-  ghostButtonHref: '#how',
-  stats: [
-    { number: '10+', label: 'Years Combined Experience' },
-    { number: '$1M–10M', label: 'Revenue Sweet Spot' },
-    { number: '60-day', label: 'Average Close Timeline' },
-  ],
 }
 
-import { tinaField } from 'tinacms/dist/react'
+interface HeroTab {
+  key: PhilosophyTabKey
+  title: string
+}
 
 function parseHeadline(text: string): string {
   return text
@@ -37,10 +30,21 @@ function parseHeadline(text: string): string {
     .replace(/\n/g, '<br />')
 }
 
-export default function Hero({ data, tinaFieldId }: { data?: HeroData; tinaFieldId?: string }) {
+export default function Hero({
+  data,
+  tinaFieldId,
+  tabs,
+  activeTab,
+  onTabChange,
+}: {
+  data?: HeroData
+  tinaFieldId?: string
+  tabs: HeroTab[]
+  activeTab: PhilosophyTabKey
+  onTabChange: (key: PhilosophyTabKey) => void
+}) {
   const d: HeroData = { ...defaultHero, ...data }
   const tinaData = data as Record<string, unknown> | undefined
-  const stats = d.stats && d.stats.length >= 3 ? d.stats : defaultHero.stats!
 
   return (
     <section className="hero" style={{ padding: 0 }} data-tina-field={tinaFieldId}>
@@ -56,9 +60,6 @@ export default function Hero({ data, tinaFieldId }: { data?: HeroData; tinaField
           <a href={d.primaryButtonHref || '#contact'} className="btn-primary" data-tina-field={tinaData ? tinaField(tinaData, 'primaryButtonText') : undefined}>
             {d.primaryButtonText}
           </a>
-          <a href={d.ghostButtonHref || '#how'} className="btn-ghost" data-tina-field={tinaData ? tinaField(tinaData, 'ghostButtonText') : undefined}>
-            {d.ghostButtonText}
-          </a>
         </div>
       </div>
       <div className="hero-visual">
@@ -68,13 +69,22 @@ export default function Hero({ data, tinaFieldId }: { data?: HeroData; tinaField
           <path transform="translate(433,73)" d="m0 0h8l4 2-1 5-10 16-10 17-11 18-10 17-17 29-13 23-10 16-6 11-6 1-176 1-2 4v8l1 7v44l-1 18v158l1 42v22l-3 12-9 16-11 17-11 20-8 13-9 16-8 14-9 15-14 24-8 13-11 20-11 18-11 20-7 11-8 14-14 28-5 1-3-3 1-11 3-17 1-59 1-23 2-17v-137l-1-269v-136l-2-40v-15l1-1h63l199-1h128z" fill="#ffffff"/>
         </svg>
       </div>
-      <div className="hero-stat-bar">
-        {stats.slice(0, 3).map((stat, i) => (
-          <div className="hero-stat" key={i} data-tina-field={tinaField(stat as Record<string, unknown>, 'number')}>
-            <div className="stat-number">{stat.number}</div>
-            <div className="stat-label">{stat.label}</div>
-          </div>
-        ))}
+      <div className="hero-stat-bar" role="tablist" aria-label="Our Philosophy">
+        {tabs.map((tab) => {
+          const isActive = tab.key === activeTab
+          return (
+            <button
+              key={tab.key}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              className={`hero-stat${isActive ? ' is-active' : ''}`}
+              onClick={() => onTabChange(tab.key)}
+            >
+              <span className="hero-stat-tab-label">{tab.title}</span>
+            </button>
+          )
+        })}
       </div>
     </section>
   )

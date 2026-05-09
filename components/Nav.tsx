@@ -28,11 +28,11 @@ export default function Nav() {
         </a>
 
         <ul className="nav-links">
-          <li><a href="/#about">About</a></li>
-          <li><a href="/#how">How We Buy</a></li>
-          <li><a href="/#criteria">Criteria</a></li>
-          <li><a href="/for-sellers">For Sellers</a></li>
-          <li><a href="/#contact" className="nav-cta">Start a Conversation</a></li>
+          <li><a href="/#our-story">Our Story</a></li>
+          <li><a href="/#how">Our Process</a></li>
+          <li><a href="/#criteria">Investment Criteria</a></li>
+          <li><a href="/founder-message">The Foundation</a></li>
+          <li><a href="/#contact" className="nav-cta">Let's Talk!</a></li>
         </ul>
 
         <button
@@ -50,13 +50,13 @@ export default function Nav() {
       {open && (
         <div className="nav-mobile-menu">
           <ul>
-            <li><a href="/#about" onClick={close}>About</a></li>
-            <li><a href="/#how" onClick={close}>How We Buy</a></li>
-            <li><a href="/#criteria" onClick={close}>Criteria</a></li>
-            <li><a href="/for-sellers" onClick={close}>For Sellers</a></li>
+            <li><a href="/#our-story" onClick={close}>Our Story</a></li>
+            <li><a href="/#how" onClick={close}>Our Process</a></li>
+            <li><a href="/#criteria" onClick={close}>Investment Criteria</a></li>
+            <li><a href="/founder-message" onClick={close}>The Foundation</a></li>
           </ul>
           <a href="/#contact" className="nav-cta nav-mobile-cta" onClick={close}>
-            Start a Conversation
+            Let's Talk!
           </a>
         </div>
       )}

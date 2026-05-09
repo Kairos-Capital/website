@@ -127,31 +127,69 @@ type PostConnection implements Connection {
   edges: [PostConnectionEdges]
 }
 
-type PageHomeHeroStats {
-  number: String
-  label: String
-}
-
 type PageHomeHero {
   eyebrow: String
   headline: String
   sub: String
   primaryButtonText: String
   primaryButtonHref: String
-  ghostButtonText: String
-  ghostButtonHref: String
-  stats: [PageHomeHeroStats]
 }
 
-type PageHomeAbout {
-  backgroundColor: String
+type PageHomePhilosophyTabsRightMomentWeightPoints {
+  icon: String
+  text: String
+}
+
+type PageHomePhilosophyTabsRightMoment {
+  tabTitle: String
+  topEyebrow: String
+  eyebrow: String
+  headline: String
+  definition: String
+  weightPoints: [PageHomePhilosophyTabsRightMomentWeightPoints]
+  quoteIntro: String
+  quoteCallout: String
+  quoteOutro: String
+}
+
+type PageHomePhilosophyTabsBuiltDifferentlyPrinciples {
+  icon: String
+  text: String
+}
+
+type PageHomePhilosophyTabsBuiltDifferently {
+  tabTitle: String
   label: String
   headline: String
-  paragraphs: [String]
+  leadParagraph: String
+  principles: [PageHomePhilosophyTabsBuiltDifferentlyPrinciples]
+  pullQuoteIntro: String
+  pullQuoteCallout: String
+}
+
+type PageHomePhilosophyTabsInvestmentPhilosophyOptions {
+  title: String
+  description: String
+  bullets: [String]
+  isHighlighted: Boolean
+}
+
+type PageHomePhilosophyTabsInvestmentPhilosophy {
+  tabTitle: String
+  label: String
+  headline: String
+  options: [PageHomePhilosophyTabsInvestmentPhilosophyOptions]
+}
+
+type PageHomePhilosophyTabs {
+  rightMoment: PageHomePhilosophyTabsRightMoment
+  builtDifferently: PageHomePhilosophyTabsBuiltDifferently
+  investmentPhilosophy: PageHomePhilosophyTabsInvestmentPhilosophy
 }
 
 type PageHomeHowSteps {
   number: String
+  icon: String
   title: String
   body: String
 }
@@ -162,45 +200,29 @@ type PageHomeHow {
   headline: String
   description: String
   steps: [PageHomeHowSteps]
+  throughline: String
 }
 
-type PageHomeCriteriaItems {
+type PageHomePartnershipCriteriaItems {
+  icon: String
   title: String
   description: String
 }
 
-type PageHomeCriteria {
-  backgroundColor: String
-  label: String
-  headline: String
-  items: [PageHomeCriteriaItems]
-}
-
-type PageHomePromise {
-  backgroundColor: String
-  headline: String
-  items: [String]
-}
-
-type PageHomeKairosStory {
-  backgroundColor: String
-  eyebrow: String
-  headline: String
-  definition: String
-  body: String
-}
-
-type PageHomeDecisionFrameOptions {
+type PageHomePartnershipPromiseItems {
+  icon: String
   title: String
   description: String
-  bullets: [String]
-  isHighlighted: Boolean
 }
 
-type PageHomeDecisionFrame {
-  label: String
+type PageHomePartnership {
   headline: String
-  options: [PageHomeDecisionFrameOptions]
+  criteriaLabel: String
+  criteriaItems: [PageHomePartnershipCriteriaItems]
+  promiseLabel: String
+  promiseItems: [PageHomePartnershipPromiseItems]
+  bottomLine1: String
+  bottomLine2: String
 }
 
 type PageHomeCta {
@@ -213,12 +235,9 @@ type PageHomeCta {
 
 type PageHome implements Node & Document {
   hero: PageHomeHero
-  about: PageHomeAbout
+  philosophyTabs: PageHomePhilosophyTabs
   how: PageHomeHow
-  criteria: PageHomeCriteria
-  promise: PageHomePromise
-  kairosStory: PageHomeKairosStory
-  decisionFrame: PageHomeDecisionFrame
+  partnership: PageHomePartnership
   cta: PageHomeCta
   id: ID!
   _sys: SystemInfo!
@@ -235,31 +254,74 @@ type PageDefault implements Node & Document {
 
 union Page = PageHome | PageDefault
 
-input PageHomeHeroStatsFilter {
-  number: StringFilter
-  label: StringFilter
-}
-
 input PageHomeHeroFilter {
   eyebrow: StringFilter
   headline: StringFilter
   sub: StringFilter
   primaryButtonText: StringFilter
   primaryButtonHref: StringFilter
-  ghostButtonText: StringFilter
-  ghostButtonHref: StringFilter
-  stats: PageHomeHeroStatsFilter
 }
 
-input PageHomeAboutFilter {
-  backgroundColor: StringFilter
+input PageHomePhilosophyTabsRightMomentWeightPointsFilter {
+  icon: StringFilter
+  text: StringFilter
+}
+
+input PageHomePhilosophyTabsRightMomentFilter {
+  tabTitle: StringFilter
+  topEyebrow: StringFilter
+  eyebrow: StringFilter
+  headline: StringFilter
+  definition: StringFilter
+  weightPoints: PageHomePhilosophyTabsRightMomentWeightPointsFilter
+  quoteIntro: StringFilter
+  quoteCallout: StringFilter
+  quoteOutro: StringFilter
+}
+
+input PageHomePhilosophyTabsBuiltDifferentlyPrinciplesFilter {
+  icon: StringFilter
+  text: StringFilter
+}
+
+input PageHomePhilosophyTabsBuiltDifferentlyFilter {
+  tabTitle: StringFilter
   label: StringFilter
   headline: StringFilter
-  paragraphs: StringFilter
+  leadParagraph: StringFilter
+  principles: PageHomePhilosophyTabsBuiltDifferentlyPrinciplesFilter
+  pullQuoteIntro: StringFilter
+  pullQuoteCallout: StringFilter
+}
+
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
+input PageHomePhilosophyTabsInvestmentPhilosophyOptionsFilter {
+  title: StringFilter
+  description: StringFilter
+  bullets: StringFilter
+  isHighlighted: BooleanFilter
+}
+
+input PageHomePhilosophyTabsInvestmentPhilosophyFilter {
+  tabTitle: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  options: PageHomePhilosophyTabsInvestmentPhilosophyOptionsFilter
+}
+
+input PageHomePhilosophyTabsFilter {
+  rightMoment: PageHomePhilosophyTabsRightMomentFilter
+  builtDifferently: PageHomePhilosophyTabsBuiltDifferentlyFilter
+  investmentPhilosophy: PageHomePhilosophyTabsInvestmentPhilosophyFilter
 }
 
 input PageHomeHowStepsFilter {
   number: StringFilter
+  icon: StringFilter
   title: StringFilter
   body: StringFilter
 }
@@ -270,50 +332,29 @@ input PageHomeHowFilter {
   headline: StringFilter
   description: StringFilter
   steps: PageHomeHowStepsFilter
+  throughline: StringFilter
 }
 
-input PageHomeCriteriaItemsFilter {
+input PageHomePartnershipCriteriaItemsFilter {
+  icon: StringFilter
   title: StringFilter
   description: StringFilter
 }
 
-input PageHomeCriteriaFilter {
-  backgroundColor: StringFilter
-  label: StringFilter
-  headline: StringFilter
-  items: PageHomeCriteriaItemsFilter
-}
-
-input PageHomePromiseFilter {
-  backgroundColor: StringFilter
-  headline: StringFilter
-  items: StringFilter
-}
-
-input PageHomeKairosStoryFilter {
-  backgroundColor: StringFilter
-  eyebrow: StringFilter
-  headline: StringFilter
-  definition: StringFilter
-  body: StringFilter
-}
-
-input BooleanFilter {
-  eq: Boolean
-  exists: Boolean
-}
-
-input PageHomeDecisionFrameOptionsFilter {
+input PageHomePartnershipPromiseItemsFilter {
+  icon: StringFilter
   title: StringFilter
   description: StringFilter
-  bullets: StringFilter
-  isHighlighted: BooleanFilter
 }
 
-input PageHomeDecisionFrameFilter {
-  label: StringFilter
+input PageHomePartnershipFilter {
   headline: StringFilter
-  options: PageHomeDecisionFrameOptionsFilter
+  criteriaLabel: StringFilter
+  criteriaItems: PageHomePartnershipCriteriaItemsFilter
+  promiseLabel: StringFilter
+  promiseItems: PageHomePartnershipPromiseItemsFilter
+  bottomLine1: StringFilter
+  bottomLine2: StringFilter
 }
 
 input PageHomeCtaFilter {
@@ -326,12 +367,9 @@ input PageHomeCtaFilter {
 
 input PageHomeFilter {
   hero: PageHomeHeroFilter
-  about: PageHomeAboutFilter
+  philosophyTabs: PageHomePhilosophyTabsFilter
   how: PageHomeHowFilter
-  criteria: PageHomeCriteriaFilter
-  promise: PageHomePromiseFilter
-  kairosStory: PageHomeKairosStoryFilter
-  decisionFrame: PageHomeDecisionFrameFilter
+  partnership: PageHomePartnershipFilter
   cta: PageHomeCtaFilter
 }
 
@@ -384,31 +422,69 @@ input PostMutation {
   body: JSON
 }
 
-input PageHomeHeroStatsMutation {
-  number: String
-  label: String
-}
-
 input PageHomeHeroMutation {
   eyebrow: String
   headline: String
   sub: String
   primaryButtonText: String
   primaryButtonHref: String
-  ghostButtonText: String
-  ghostButtonHref: String
-  stats: [PageHomeHeroStatsMutation]
 }
 
-input PageHomeAboutMutation {
-  backgroundColor: String
+input PageHomePhilosophyTabsRightMomentWeightPointsMutation {
+  icon: String
+  text: String
+}
+
+input PageHomePhilosophyTabsRightMomentMutation {
+  tabTitle: String
+  topEyebrow: String
+  eyebrow: String
+  headline: String
+  definition: String
+  weightPoints: [PageHomePhilosophyTabsRightMomentWeightPointsMutation]
+  quoteIntro: String
+  quoteCallout: String
+  quoteOutro: String
+}
+
+input PageHomePhilosophyTabsBuiltDifferentlyPrinciplesMutation {
+  icon: String
+  text: String
+}
+
+input PageHomePhilosophyTabsBuiltDifferentlyMutation {
+  tabTitle: String
   label: String
   headline: String
-  paragraphs: [String]
+  leadParagraph: String
+  principles: [PageHomePhilosophyTabsBuiltDifferentlyPrinciplesMutation]
+  pullQuoteIntro: String
+  pullQuoteCallout: String
+}
+
+input PageHomePhilosophyTabsInvestmentPhilosophyOptionsMutation {
+  title: String
+  description: String
+  bullets: [String]
+  isHighlighted: Boolean
+}
+
+input PageHomePhilosophyTabsInvestmentPhilosophyMutation {
+  tabTitle: String
+  label: String
+  headline: String
+  options: [PageHomePhilosophyTabsInvestmentPhilosophyOptionsMutation]
+}
+
+input PageHomePhilosophyTabsMutation {
+  rightMoment: PageHomePhilosophyTabsRightMomentMutation
+  builtDifferently: PageHomePhilosophyTabsBuiltDifferentlyMutation
+  investmentPhilosophy: PageHomePhilosophyTabsInvestmentPhilosophyMutation
 }
 
 input PageHomeHowStepsMutation {
   number: String
+  icon: String
   title: String
   body: String
 }
@@ -419,45 +495,29 @@ input PageHomeHowMutation {
   headline: String
   description: String
   steps: [PageHomeHowStepsMutation]
+  throughline: String
 }
 
-input PageHomeCriteriaItemsMutation {
+input PageHomePartnershipCriteriaItemsMutation {
+  icon: String
   title: String
   description: String
 }
 
-input PageHomeCriteriaMutation {
-  backgroundColor: String
-  label: String
-  headline: String
-  items: [PageHomeCriteriaItemsMutation]
-}
-
-input PageHomePromiseMutation {
-  backgroundColor: String
-  headline: String
-  items: [String]
-}
-
-input PageHomeKairosStoryMutation {
-  backgroundColor: String
-  eyebrow: String
-  headline: String
-  definition: String
-  body: String
-}
-
-input PageHomeDecisionFrameOptionsMutation {
+input PageHomePartnershipPromiseItemsMutation {
+  icon: String
   title: String
   description: String
-  bullets: [String]
-  isHighlighted: Boolean
 }
 
-input PageHomeDecisionFrameMutation {
-  label: String
+input PageHomePartnershipMutation {
   headline: String
-  options: [PageHomeDecisionFrameOptionsMutation]
+  criteriaLabel: String
+  criteriaItems: [PageHomePartnershipCriteriaItemsMutation]
+  promiseLabel: String
+  promiseItems: [PageHomePartnershipPromiseItemsMutation]
+  bottomLine1: String
+  bottomLine2: String
 }
 
 input PageHomeCtaMutation {
@@ -470,12 +530,9 @@ input PageHomeCtaMutation {
 
 input PageHomeMutation {
   hero: PageHomeHeroMutation
-  about: PageHomeAboutMutation
+  philosophyTabs: PageHomePhilosophyTabsMutation
   how: PageHomeHowMutation
-  criteria: PageHomeCriteriaMutation
-  promise: PageHomePromiseMutation
-  kairosStory: PageHomeKairosStoryMutation
-  decisionFrame: PageHomeDecisionFrameMutation
+  partnership: PageHomePartnershipMutation
   cta: PageHomeCtaMutation
 }
 
