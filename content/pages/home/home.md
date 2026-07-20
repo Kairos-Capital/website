@@ -148,7 +148,7 @@ partnership:
   bottomLine1: We partner with people.
   bottomLine2: We steward legacies.
 cta:
-  backgroundColor: purple
+  backgroundColor: white
   headline: |
     Ready to talk 
     about your

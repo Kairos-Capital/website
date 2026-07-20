@@ -13,14 +13,6 @@ export default function Footer() {
         <p className="footer-copy">© 2026 Kairos Capital LLC</p>
         <p className="footer-slogan">We buy businesses. To build legacies.</p>
       </div>
-      <ul className="footer-links">
-        <li><a href="/#about">About</a></li>
-        <li><a href="/#how">How We Buy</a></li>
-        <li><a href="/#criteria">Criteria</a></li>
-        <li><a href="/for-sellers">For Sellers</a></li>
-        <li><a href="/refer-a-deal">Refer a Deal</a></li>
-        <li><a href="/#contact">Contact</a></li>
-      </ul>
     </footer>
   )
 }
