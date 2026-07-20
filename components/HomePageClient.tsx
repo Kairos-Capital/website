@@ -22,13 +22,13 @@ export default function HomePageClient({ tinaProps }: HomePageClientProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const pageData = data?.page as Record<string, any> | undefined
 
-  const [activeTab, setActiveTab] = useState<PhilosophyTabKey>('rightMoment')
+  const [activeTab, setActiveTab] = useState<PhilosophyTabKey>('builtDifferently')
 
   const philosophyData = pageData?.philosophyTabs as PhilosophyTabsData | undefined
 
   const tabs = [
-    { key: 'rightMoment' as const, title: philosophyData?.rightMoment?.tabTitle || 'The Right Moment' },
     { key: 'builtDifferently' as const, title: philosophyData?.builtDifferently?.tabTitle || 'Built Differently' },
+    { key: 'rightMoment' as const, title: philosophyData?.rightMoment?.tabTitle || 'The Right Moment' },
     { key: 'investmentPhilosophy' as const, title: philosophyData?.investmentPhilosophy?.tabTitle || 'Investment Philosophy' },
   ]
 
