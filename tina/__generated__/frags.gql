@@ -14,20 +14,52 @@ fragment PageParts on Page {
       sub
       primaryButtonText
       primaryButtonHref
-      ghostButtonText
-      ghostButtonHref
-      stats {
-        __typename
-        number
-        label
-      }
     }
-    about {
+    philosophyTabs {
       __typename
-      backgroundColor
-      label
-      headline
-      paragraphs
+      rightMoment {
+        __typename
+        tabTitle
+        topEyebrow
+        eyebrow
+        headline
+        definition
+        weightPoints {
+          __typename
+          icon
+          text
+        }
+        quoteIntro
+        quoteCallout
+        quoteOutro
+      }
+      builtDifferently {
+        __typename
+        tabTitle
+        label
+        headline
+        leadParagraph
+        principles {
+          __typename
+          icon
+          text
+        }
+        pullQuoteIntro
+        pullQuoteCallout
+      }
+      investmentPhilosophy {
+        __typename
+        tabTitle
+        label
+        headline
+        options {
+          __typename
+          title
+          description
+          bullets
+          isHighlighted
+        }
+      }
     }
     how {
       __typename
@@ -38,46 +70,31 @@ fragment PageParts on Page {
       steps {
         __typename
         number
+        icon
         title
         body
       }
+      throughline
     }
-    criteria {
+    partnership {
       __typename
-      backgroundColor
-      label
       headline
-      items {
+      criteriaLabel
+      criteriaItems {
         __typename
+        icon
         title
         description
       }
-    }
-    promise {
-      __typename
-      backgroundColor
-      headline
-      items
-    }
-    kairosStory {
-      __typename
-      backgroundColor
-      eyebrow
-      headline
-      definition
-      body
-    }
-    decisionFrame {
-      __typename
-      label
-      headline
-      options {
+      promiseLabel
+      promiseItems {
         __typename
+        icon
         title
         description
-        bullets
-        isHighlighted
       }
+      bottomLine1
+      bottomLine2
     }
     cta {
       __typename

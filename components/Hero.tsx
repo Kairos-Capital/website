@@ -1,7 +1,7 @@
-interface Stat {
-  number?: string
-  label?: string
-}
+'use client'
+
+import { tinaField } from 'tinacms/dist/react'
+import type { PhilosophyTabKey } from './PhilosophyTabs'
 
 interface HeroData {
   eyebrow?: string
@@ -9,27 +9,20 @@ interface HeroData {
   sub?: string
   primaryButtonText?: string
   primaryButtonHref?: string
-  ghostButtonText?: string
-  ghostButtonHref?: string
-  stats?: Stat[]
 }
 
 const defaultHero: HeroData = {
   eyebrow: 'Business Acquisition',
   headline: 'We buy businesses.\nTo build *legacies*.',
   sub: 'Kairos Capital acquires great businesses from founders ready for their next chapter — and stewards them for the long term.',
-  primaryButtonText: 'Sell Your Business',
+  primaryButtonText: "Let's Talk.",
   primaryButtonHref: '#contact',
-  ghostButtonText: 'How It Works',
-  ghostButtonHref: '#how',
-  stats: [
-    { number: '10+', label: 'Years Combined Experience' },
-    { number: '$1M–10M', label: 'Revenue Sweet Spot' },
-    { number: '60-day', label: 'Average Close Timeline' },
-  ],
 }
 
-import { tinaField } from 'tinacms/dist/react'
+interface HeroTab {
+  key: PhilosophyTabKey
+  title: string
+}
 
 function parseHeadline(text: string): string {
   return text
@@ -37,10 +30,21 @@ function parseHeadline(text: string): string {
     .replace(/\n/g, '<br />')
 }
 
-export default function Hero({ data, tinaFieldId }: { data?: HeroData; tinaFieldId?: string }) {
+export default function Hero({
+  data,
+  tinaFieldId,
+  tabs,
+  activeTab,
+  onTabChange,
+}: {
+  data?: HeroData
+  tinaFieldId?: string
+  tabs: HeroTab[]
+  activeTab: PhilosophyTabKey
+  onTabChange: (key: PhilosophyTabKey) => void
+}) {
   const d: HeroData = { ...defaultHero, ...data }
   const tinaData = data as Record<string, unknown> | undefined
-  const stats = d.stats && d.stats.length >= 3 ? d.stats : defaultHero.stats!
 
   return (
     <section className="hero" style={{ padding: 0 }} data-tina-field={tinaFieldId}>
@@ -56,25 +60,25 @@ export default function Hero({ data, tinaFieldId }: { data?: HeroData; tinaField
           <a href={d.primaryButtonHref || '#contact'} className="btn-primary" data-tina-field={tinaData ? tinaField(tinaData, 'primaryButtonText') : undefined}>
             {d.primaryButtonText}
           </a>
-          <a href={d.ghostButtonHref || '#how'} className="btn-ghost" data-tina-field={tinaData ? tinaField(tinaData, 'ghostButtonText') : undefined}>
-            {d.ghostButtonText}
-          </a>
         </div>
       </div>
-      <div className="hero-visual">
-        <svg className="hero-mark" viewBox="0 0 1208 1208" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path transform="translate(542,138)" d="m0 0h124l8 2 5 6 8 15 4 8 16 26 9 17 10 15 9 16 7 12 9 15 13 23 9 15 9 16 12 20 10 17 13 22 12 21 14 24 9 17 14 22 14 24 16 27 12 22 10 16 9 16 10 16 13 23 11 18 7 13 10 17 14 24 12 20 8 14 15 25 10 17 17 29 9 16 17 29 16 27 10 17 13 23 6 9 15 26 12 20 10 17 16 27 5 8 1 3v7l-10 18-17 28-11 20-14 23-10 18-4 5-2 1-346 1-8-7-7-12-8-16-7-13-10-15-9-16-8-13-12-21-7-11-10-15-5-8v-7l2-2h11l18 2 70 1h45l79-3h14l14 1h29l4-2v-6l-10-19-12-19-12-22-12-19-8-14-14-24-15-27-13-21-10-18-9-14-15-26-6-10-8-15-12-19-9-15-9-16-8-13-9-16-4-8-11-16-12-22-7-13-13-22-13-21-10-16-7-14-14-22-8-13-5-10-8-13-16-28-10-16-8-16-13-21-10-15-5-5-5 8-22 36-10 18-12 20-10 18-9 15-15 27-21 35-17 28-13 23-15 26-10 16-14 25-10 17-12 20-10 17-8 13-13 22-8 13-13 23-10 17-14 25-7 10-9 15-9 16-15 27-12 20-10 16-10 17-10 16-10 17v6l8 4 11 2h150l74-3h45l-1 4-9 16-10 16-10 18-16 27-11 20-10 17-6 10-6 11-7 11-4 4-2 1-346 1-5-5-6-9-7-16-9-13-8-14-13-23-8-13-7-14-1-8 3-10 16-27 6-10 13-21 13-23 15-24 9-16 12-20 9-14 8-15 11-17 6-10 8-17 9-15 15-26 8-13 13-23 10-15 15-27 9-16 11-18 11-19 12-20 12-19 15-28 13-21 11-21 9-13 12-20 20-34 11-19 7-11 7-14 13-21 9-15 13-23 10-18 15-25 11-21 17-26 7-12 6-11 14-24 11-20 12-21 10-17 4-5z" fill="#ffffff"/>
-          <path transform="translate(1169,73)" d="m0 0h13l4 3 1 8-1 5v22l-1 42v491l2 54v106l-4-1-4-5-9-16-7-13-10-16-8-15-8-14-6-10-10-19-10-17-7-10-7-13-10-18-7-10-8-16-10-15-20-35-6-10-4-13 2-9 1-287-3-8-3-3v-2l-181-1-3-1-13-21-15-28-14-23-9-15-14-24-16-27-8-11 1-3h401l9-1z" fill="#ffffff"/>
-          <path transform="translate(433,73)" d="m0 0h8l4 2-1 5-10 16-10 17-11 18-10 17-17 29-13 23-10 16-6 11-6 1-176 1-2 4v8l1 7v44l-1 18v158l1 42v22l-3 12-9 16-11 17-11 20-8 13-9 16-8 14-9 15-14 24-8 13-11 20-11 18-11 20-7 11-8 14-14 28-5 1-3-3 1-11 3-17 1-59 1-23 2-17v-137l-1-269v-136l-2-40v-15l1-1h63l199-1h128z" fill="#ffffff"/>
-        </svg>
-      </div>
-      <div className="hero-stat-bar">
-        {stats.slice(0, 3).map((stat, i) => (
-          <div className="hero-stat" key={i} data-tina-field={tinaField(stat as Record<string, unknown>, 'number')}>
-            <div className="stat-number">{stat.number}</div>
-            <div className="stat-label">{stat.label}</div>
-          </div>
-        ))}
+      <div className="hero-visual" />
+      <div className="hero-stat-bar" role="tablist" aria-label="Our Philosophy">
+        {tabs.map((tab) => {
+          const isActive = tab.key === activeTab
+          return (
+            <button
+              key={tab.key}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              className={`hero-stat${isActive ? ' is-active' : ''}`}
+              onClick={() => onTabChange(tab.key)}
+            >
+              <span className="hero-stat-tab-label">{tab.title}</span>
+            </button>
+          )
+        })}
       </div>
     </section>
   )
