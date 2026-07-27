@@ -1180,7 +1180,7 @@ footer {
 /* ── Hero ── */
 .founder-hero {
 	display: grid;
-	grid-template-columns: 52% 1fr;
+	grid-template-columns: 39% 1fr;
 	min-height: 100vh;
 	padding-top: 64px;
 	background: #ffffff;
@@ -1553,7 +1553,7 @@ footer {
 /* ── Founder Mobile ── */
 @media (max-width: 900px) {
 	.founder-hero { grid-template-columns: 1fr; min-height: auto; }
-	.founder-hero-portrait-col { height: 55vw; max-height: 420px; }
+	.founder-hero-portrait-col { height: 41vw; max-height: 315px; }
 	.founder-hero-content { padding: 3rem 1.5rem 4rem; border-left: none; border-top: 1px solid rgba(8,8,8,0.10); }
 	.founder-opening-quote { max-width: 100%; }
 	.founder-section { padding: 5rem 1.5rem; }
