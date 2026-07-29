@@ -49,6 +49,30 @@ export default function FounderMessage() {
         </div>
       </section>
 
+      {/* ── Advisor ── */}
+      <section className="founder-advisor-hero">
+        <div className="founder-hero-portrait-col">
+          <div className="founder-portrait-accent" />
+          <img
+            src="/james-smith-portrait.png"
+            alt="James Smith, Advisor at Kairos Capital"
+            className="founder-portrait-img"
+          />
+        </div>
+        <div className="founder-hero-content">
+          <p className="founder-eyebrow">The Team</p>
+          <h2 className="founder-name">James Smith</h2>
+          <p className="founder-title">Advisor</p>
+          <div className="founder-hero-rule" />
+          <p className="founder-opening-quote">
+            &ldquo;I grew up in my family&rsquo;s fifth-generation business, where I
+            learned that a company&rsquo;s greatest asset is its people. That
+            upbringing shaped my belief in long-term employee relationships and
+            community stewardship as the foundation of good business.&rdquo;
+          </p>
+        </div>
+      </section>
+
       {/* ── Section 2: The Vision (white) ── */}
       <section className="founder-section founder-section--white">
         <div className="founder-section-inner">
