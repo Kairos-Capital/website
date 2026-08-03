@@ -876,18 +876,19 @@ section { padding: 7rem 3rem; }
 footer {
 	background: var(--black);
 	border-top: 1px solid var(--border);
-	padding: 3rem;
+	padding: 2.1rem 3rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.footer-logo { display: flex; align-items: center; gap: 0.75rem; }
-.footer-copy-block { display: flex; flex-direction: column; gap: 0.2rem; }
+.footer-logo { display: flex; align-items: center; gap: 0.5rem; }
+.footer-logo svg { width: 15px; height: 15px; }
+.footer-copy-block { display: flex; flex-direction: column; gap: 0.15rem; }
 
 .footer-wordmark {
 	font-family: var(--font-sans);
-	font-size: clamp(0.85rem, 1.2vw + 0.5rem, 1.275rem);
+	font-size: clamp(0.6rem, 0.84vw + 0.35rem, 0.9rem);
 	font-weight: 700;
 	letter-spacing: 0.18em;
 	text-transform: uppercase;
@@ -896,7 +897,7 @@ footer {
 
 .footer-slogan {
 	font-family: var(--font-sans);
-	font-size: clamp(0.72rem, 1vw + 0.4rem, 1.08rem);
+	font-size: clamp(0.5rem, 0.7vw + 0.28rem, 0.75rem);
 	font-weight: 400;
 	letter-spacing: 0.04em;
 	color: rgba(255,255,255,0.24);
@@ -905,7 +906,7 @@ footer {
 
 .footer-copy {
 	font-family: var(--font-sans);
-	font-size: clamp(0.72rem, 1vw + 0.4rem, 1.08rem);
+	font-size: clamp(0.5rem, 0.7vw + 0.28rem, 0.75rem);
 	letter-spacing: 0.1em;
 	color: rgba(255,255,255,0.48);
 	text-transform: uppercase;
@@ -1013,7 +1014,7 @@ footer {
 	.contact-row { grid-template-columns: 1fr; }
 	.page-content { padding: 5rem 1.5rem 3rem; }
 
-	footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 1.5rem; }
+	footer { flex-direction: column; gap: 1.05rem; text-align: center; padding: 1.75rem 1.05rem; }
 	.footer-links { flex-wrap: wrap; justify-content: center; }
 
 	.kairos-story-headline { font-size: clamp(2.4rem, 7vw, 3.5rem); }
