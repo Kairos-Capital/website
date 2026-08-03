@@ -2,6 +2,7 @@
 dist/
 out/
 .next/
+tina/__generated__/.cache/
 
 # dependencies
 node_modules/
@@ -23,3 +24,9 @@ pnpm-debug.log*
 .idea/
 
 node_modules
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+
+# logs
+logs/
