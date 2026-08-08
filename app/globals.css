@@ -1178,22 +1178,9 @@ footer {
 ═══════════════════════════════════════════ */
 .founder-page { background: var(--black); }
 
-/* ── Hero ── */
-.founder-hero {
-	display: grid;
-	grid-template-columns: 39% 1fr;
-	min-height: 100vh;
-	padding-top: 64px;
-	background: #ffffff;
-	overflow: hidden;
-}
+.founder-section--first { padding-top: calc(7rem + 64px); }
 
-.founder-hero-portrait-col {
-	position: relative;
-	display: flex;
-	align-items: flex-end;
-}
-
+/* ── Portrait accent + image (reused inside team cards) ── */
 .founder-portrait-accent {
 	position: absolute;
 	left: 0;
@@ -1210,14 +1197,6 @@ footer {
 	object-fit: cover;
 	object-position: center top;
 	display: block;
-}
-
-.founder-hero-content {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: 5rem 4rem 5rem 3rem;
-	border-left: 1px solid rgba(8,8,8,0.10);
 }
 
 .founder-eyebrow {
@@ -1273,7 +1252,6 @@ footer {
 
 .founder-section--dark  { background: var(--surface); }
 .founder-section--white { background: #ffffff; }
-.founder-section--story { background: #f7f7f5; }
 
 .founder-label-row { margin-bottom: 1.5rem; }
 
@@ -1312,58 +1290,49 @@ footer {
 
 .founder-section-headline--light { color: var(--white); }
 
-/* ── Section 1: Story grid ── */
-.founder-story-grid {
+/* ── Team: Richie + James side-by-side cards ── */
+.founder-team-section {
+	padding: 7rem 3rem;
+	background: #ffffff;
+	border-top: 1px solid rgba(8,8,8,0.10);
+}
+
+.founder-team-grid {
 	display: grid;
-	grid-template-columns: 1fr 1.4fr;
-	gap: 6rem;
-	align-items: start;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem;
 }
 
-.founder-pull-col { position: relative; padding-top: 1rem; }
-
-.founder-pull-mark {
-	display: block;
-	font-family: var(--font-serif);
-	font-size: 8rem;
-	line-height: 0.6;
-	color: var(--coral);
-	opacity: 0.35;
-	margin-bottom: 1rem;
-}
-
-.founder-pull-quote {
-	font-family: var(--font-serif);
-	font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-	font-weight: 700;
-	font-style: italic;
-	line-height: 1.35;
-	color: var(--coral);
-	border: none;
-	padding: 0;
-	margin: 0;
-}
-
-.founder-body-col {
+.founder-team-card {
 	display: flex;
 	flex-direction: column;
-	gap: 1.5rem;
+	background: #ffffff;
+	border: 1px solid rgba(8,8,8,0.10);
+	border-radius: 14px;
+	overflow: hidden;
 }
 
-.founder-body-col p {
-	font-family: var(--font-sans);
-	font-size: 1.05rem;
-	line-height: 1.85;
-	color: rgba(8,8,8,0.62);
+.founder-team-card-image {
+	position: relative;
+	height: 420px;
+	overflow: hidden;
 }
 
-.founder-emphasis {
-	font-family: var(--font-serif) !important;
-	font-size: 1.2rem !important;
-	font-style: italic;
-	color: var(--black) !important;
-	padding-left: 1.25rem;
-	border-left: 3px solid var(--coral);
+.founder-team-card-content {
+	padding: 2rem 2rem 2.5rem;
+}
+
+.founder-team-card-content .founder-name {
+	font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+	margin-bottom: 0.5rem;
+}
+
+.founder-team-card-content .founder-title { margin-bottom: 1.5rem; }
+.founder-team-card-content .founder-hero-rule { margin-bottom: 1.5rem; }
+
+.founder-team-card-content .founder-opening-quote {
+	font-size: clamp(1rem, 1.6vw, 1.15rem);
+	max-width: 100%;
 }
 
 /* ── Section 2: Vision (white) ── */
@@ -1531,15 +1500,6 @@ footer {
 	color: var(--text-muted);
 }
 
-/* ── Advisor ── */
-.founder-advisor-hero {
-	display: grid;
-	grid-template-columns: 39% 1fr;
-	background: #ffffff;
-	border-top: 1px solid rgba(8,8,8,0.10);
-	overflow: hidden;
-}
-
 /* ── CTA ── */
 .founder-cta-section {
 	background: var(--surface);
@@ -1562,26 +1522,24 @@ footer {
 
 /* ── Founder Mobile ── */
 @media (max-width: 900px) {
-	.founder-hero { grid-template-columns: 1fr; min-height: auto; }
-	.founder-hero-portrait-col { height: 41vw; max-height: 315px; }
-	.founder-hero-content { padding: 3rem 1.5rem 4rem; border-left: none; border-top: 1px solid rgba(8,8,8,0.10); }
 	.founder-opening-quote { max-width: 100%; }
 	.founder-section { padding: 5rem 1.5rem; }
-	.founder-story-grid { grid-template-columns: 1fr; gap: 3rem; }
+	.founder-section--first { padding-top: calc(5rem + 64px); }
 	.founder-vision-body { grid-template-columns: 1fr; gap: 1.5rem; }
 	.founder-measures { grid-template-columns: 1fr; gap: 2rem; }
+	.founder-team-section { padding: 5rem 1.5rem; }
+	.founder-team-grid { grid-template-columns: 1fr; gap: 2rem; }
+	.founder-team-card-image { height: 340px; }
 	.founder-pillars { grid-template-columns: 1fr; }
 	.founder-pillar { border-right: none; border-bottom: 1px solid var(--border); padding: 2rem 0; }
 	.founder-pillar:last-child { border-bottom: none; }
 	.founder-pillar:not(:first-child) { padding-left: 0; }
 	.founder-closing { padding: 5rem 1.5rem; }
-	.founder-advisor-hero { grid-template-columns: 1fr; }
 	.founder-cta-section { padding: 4rem 1.5rem; }
 }
 
 @media (max-width: 480px) {
-	.founder-hero-portrait-col { height: 70vw; }
-	.founder-pull-mark { font-size: 5rem; }
+	.founder-team-card-image { height: 280px; }
 }
 
 /* ═══════════════════════════════════════════

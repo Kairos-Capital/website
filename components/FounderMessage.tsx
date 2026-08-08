@@ -2,79 +2,8 @@ export default function FounderMessage() {
   return (
     <main className="founder-page">
 
-      {/* ── Hero Split ── */}
-      <section className="founder-hero">
-        <div className="founder-hero-portrait-col">
-          <div className="founder-portrait-accent" />
-          <img
-            src="/founder-portrait.png"
-            alt="Richie Willard, Founder of Kairos Capital"
-            className="founder-portrait-img"
-          />
-        </div>
-        <div className="founder-hero-content">
-          <p className="founder-eyebrow">The Foundation</p>
-          <h1 className="founder-name">Richie Willard</h1>
-          <p className="founder-title">Founder &amp; Managing Partner</p>
-          <div className="founder-hero-rule" />
-          <p className="founder-opening-quote">
-            &ldquo;I grew up in a small rural community where a person&rsquo;s word
-            carried more weight than a contract.&rdquo;
-          </p>
-        </div>
-      </section>
-
-      {/* ── Section 1: The Story ── */}
-      <section className="founder-section founder-section--story">
-        <div className="founder-section-inner founder-story-grid">
-          <div className="founder-pull-col">
-            <span className="founder-pull-mark">&ldquo;</span>
-            <blockquote className="founder-pull-quote">
-              Trust was earned over years, not negotiated in meetings.
-            </blockquote>
-          </div>
-          <div className="founder-body-col">
-            <p>Those experiences left a lasting impression on me.</p>
-            <p>
-              I learned that small businesses are far more than places of commerce.
-              They create opportunity, provide stability for families, sponsor youth
-              sports teams, support local charities, and become part of the identity
-              of a town. When they succeed, communities thrive. When they struggle,
-              everyone feels the impact.
-            </p>
-            <p className="founder-emphasis">
-              That belief became the foundation for Kairos Capital.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Advisor ── */}
-      <section className="founder-advisor-hero">
-        <div className="founder-hero-portrait-col">
-          <div className="founder-portrait-accent" />
-          <img
-            src="/james-smith-portrait.png"
-            alt="James Smith, Advisor at Kairos Capital"
-            className="founder-portrait-img"
-          />
-        </div>
-        <div className="founder-hero-content">
-          <p className="founder-eyebrow">The Team</p>
-          <h2 className="founder-name">James Smith</h2>
-          <p className="founder-title">Advisor</p>
-          <div className="founder-hero-rule" />
-          <p className="founder-opening-quote">
-            &ldquo;I grew up in my family&rsquo;s fifth-generation business, where I
-            learned that a company&rsquo;s greatest asset is its people. That
-            upbringing shaped my belief in long-term employee relationships and
-            community stewardship as the foundation of good business.&rdquo;
-          </p>
-        </div>
-      </section>
-
-      {/* ── Section 2: The Vision (white) ── */}
-      <section className="founder-section founder-section--white">
+      {/* ── Section: Our Vision (white) ── */}
+      <section className="founder-section founder-section--white founder-section--first">
         <div className="founder-section-inner">
           <div className="founder-label-row">
             <span className="founder-section-label">Our Vision</span>
@@ -107,6 +36,54 @@ export default function FounderMessage() {
             <div className="founder-measure-item">
               <div className="founder-measure-bar" />
               <p>Communities that become stronger because a business grows and endures.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Team: Richie + James side by side ── */}
+      <section className="founder-team-section">
+        <div className="founder-section-inner founder-team-grid">
+          <div className="founder-team-card">
+            <div className="founder-team-card-image">
+              <div className="founder-portrait-accent" />
+              <img
+                src="/founder-portrait.png"
+                alt="Richie Willard, Founder of Kairos Capital"
+                className="founder-portrait-img"
+              />
+            </div>
+            <div className="founder-team-card-content">
+              <p className="founder-eyebrow">The Foundation</p>
+              <h3 className="founder-name">Richie Willard</h3>
+              <p className="founder-title">Founder &amp; Managing Partner</p>
+              <div className="founder-hero-rule" />
+              <p className="founder-opening-quote">
+                &ldquo;I grew up in a small rural community where a person&rsquo;s word
+                carried more weight than a contract.&rdquo;
+              </p>
+            </div>
+          </div>
+          <div className="founder-team-card">
+            <div className="founder-team-card-image">
+              <div className="founder-portrait-accent" />
+              <img
+                src="/james-smith-portrait.png"
+                alt="James Smith, Advisor at Kairos Capital"
+                className="founder-portrait-img"
+              />
+            </div>
+            <div className="founder-team-card-content">
+              <p className="founder-eyebrow">The Team</p>
+              <h3 className="founder-name">James Smith</h3>
+              <p className="founder-title">Advisor</p>
+              <div className="founder-hero-rule" />
+              <p className="founder-opening-quote">
+                &ldquo;I grew up in my family&rsquo;s fifth-generation business, where I
+                learned that a company&rsquo;s greatest asset is its people. That
+                upbringing shaped my belief in long-term employee relationships and
+                community stewardship as the foundation of good business.&rdquo;
+              </p>
             </div>
           </div>
         </div>
