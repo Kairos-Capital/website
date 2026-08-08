@@ -1332,6 +1332,8 @@ footer {
 
 .founder-team-card-content .founder-opening-quote {
 	font-size: clamp(1rem, 1.6vw, 1.15rem);
+	font-style: normal;
+	font-weight: 400;
 	max-width: 100%;
 }
 
@@ -1363,10 +1365,11 @@ footer {
 
 .founder-measure-item { display: flex; flex-direction: column; gap: 1rem; }
 
-.founder-measure-bar {
-	width: 32px;
-	height: 3px;
-	background: var(--coral);
+.founder-measure-mark {
+	width: 36px;
+	height: 36px;
+	color: var(--coral);
+	flex-shrink: 0;
 }
 
 .founder-measure-item p {
@@ -1377,11 +1380,55 @@ footer {
 }
 
 /* ── Section 3: Commitment (dark) ── */
-.founder-commitment-body {
+.founder-message-body {
+	display: flex;
+	flex-direction: column;
+	gap: 1.75rem;
+	max-width: 800px;
+}
+
+.founder-message-body p {
 	font-family: var(--font-sans);
 	font-size: 1.05rem;
 	line-height: 1.85;
 	color: var(--text-sub);
+}
+
+.founder-message-closing {
+	font-family: var(--font-serif) !important;
+	font-size: 1.2rem !important;
+	font-style: italic;
+	color: var(--white) !important;
+	padding-left: 1.25rem;
+	border-left: 3px solid var(--coral);
+}
+
+.founder-signature {
+	margin-top: 2.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.founder-signature-rule {
+	width: 48px;
+	height: 1px;
+	background: var(--coral);
+}
+
+.founder-signature-name {
+	font-family: 'Mr Dafoe', cursive;
+	font-size: 3.375rem;
+	font-weight: 400;
+	color: var(--coral);
+	line-height: 1.2;
+}
+
+.founder-commitment-body {
+	font-family: var(--font-sans);
+	font-size: 1.05rem;
+	line-height: 1.85;
+	color: rgba(8,8,8,0.65);
 	max-width: 720px;
 	margin-bottom: 4rem;
 }
@@ -1390,12 +1437,12 @@ footer {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 0;
-	border-top: 1px solid var(--border);
+	border-top: 1px solid rgba(8,8,8,0.10);
 }
 
 .founder-pillar {
 	padding: 2.5rem 2rem 2.5rem 0;
-	border-right: 1px solid var(--border);
+	border-right: 1px solid rgba(8,8,8,0.10);
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -1416,8 +1463,8 @@ footer {
 	font-family: var(--font-serif);
 	font-size: 1.2rem;
 	font-weight: 700;
-	font-style: italic;
-	color: var(--white);
+	font-style: normal;
+	color: var(--black);
 	line-height: 1.4;
 }
 
@@ -1531,7 +1578,7 @@ footer {
 	.founder-team-grid { grid-template-columns: 1fr; gap: 2rem; }
 	.founder-team-card-image { height: 340px; }
 	.founder-pillars { grid-template-columns: 1fr; }
-	.founder-pillar { border-right: none; border-bottom: 1px solid var(--border); padding: 2rem 0; }
+	.founder-pillar { border-right: none; border-bottom: 1px solid rgba(8,8,8,0.10); padding: 2rem 0; }
 	.founder-pillar:last-child { border-bottom: none; }
 	.founder-pillar:not(:first-child) { padding-left: 0; }
 	.founder-closing { padding: 5rem 1.5rem; }
@@ -1539,7 +1586,35 @@ footer {
 }
 
 @media (max-width: 480px) {
-	.founder-team-card-image { height: 280px; }
+	/* Section spacing */
+	.founder-section { padding: 4rem 1.25rem; }
+	.founder-section--first { padding-top: calc(4rem + 64px); }
+	.founder-team-section { padding: 4rem 1.25rem; }
+	.founder-closing { padding: 4rem 1.25rem; }
+	.founder-cta-section { padding: 3.5rem 1.25rem; }
+
+	/* Headlines */
+	.founder-section-headline { font-size: clamp(1.9rem, 5vw, 2.6rem); margin-bottom: 2rem; }
+
+	/* Team cards */
+	.founder-team-card-image { height: 240px; }
+	.founder-team-card-content { padding: 1.5rem 1.25rem 2rem; }
+
+	/* Message body */
+	.founder-message-body p { font-size: 0.975rem; }
+	.founder-message-closing { font-size: 1rem !important; padding-left: 1rem; }
+
+	/* Signature */
+	.founder-signature-name { font-size: 2.5rem; }
+
+	/* Closing statement */
+	.founder-closing-line2 { font-size: clamp(1.25rem, 4vw, 1.6rem); }
+
+	/* CTA */
+	.founder-cta-label { font-size: clamp(1.1rem, 4vw, 1.5rem); }
+
+	/* Pillars */
+	.founder-pillar { padding: 1.5rem 0; }
 }
 
 /* ═══════════════════════════════════════════
