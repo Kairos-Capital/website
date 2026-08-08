@@ -3,7 +3,7 @@ import Footer from '@/components/Footer'
 import FounderMessage from '@/components/FounderMessage'
 
 export const metadata = {
-  title: 'The Foundation — Kairos Capital',
+  title: 'The Foundation',
   description: 'A message from Richie Willard, Founder of Kairos Capital.',
 }
 

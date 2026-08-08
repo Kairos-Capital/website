@@ -2,7 +2,10 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Kairos Capital — We Buy Businesses. To Build Legacies.',
+  title: {
+    default: 'Kairos Capital — We Buy Businesses. To Build Legacies.',
+    template: 'Kairos Capital | %s',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
