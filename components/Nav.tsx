@@ -28,7 +28,7 @@ export default function Nav() {
         </a>
 
         <ul className="nav-links">
-          <li><a href="/#our-story">Our Story</a></li>
+          <li><a href="/#our-story">Who We Are</a></li>
           <li><a href="/#how">Our Process</a></li>
           <li><a href="/#criteria">Investment Criteria</a></li>
           <li><a href="/founder-message">The Foundation</a></li>
@@ -50,7 +50,7 @@ export default function Nav() {
       {open && (
         <div className="nav-mobile-menu">
           <ul>
-            <li><a href="/#our-story" onClick={close}>Our Story</a></li>
+            <li><a href="/#our-story" onClick={close}>Who We Are</a></li>
             <li><a href="/#how" onClick={close}>Our Process</a></li>
             <li><a href="/#criteria" onClick={close}>Investment Criteria</a></li>
             <li><a href="/founder-message" onClick={close}>The Foundation</a></li>
