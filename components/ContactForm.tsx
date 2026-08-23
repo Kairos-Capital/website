@@ -1,19 +1,19 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import ReCAPTCHA from 'react-google-recaptcha'
+import HCaptcha from '@hcaptcha/react-hcaptcha'
+
+const HCAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY ?? ''
+const WEB3_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? ''
 
 export default function ContactForm({ contactEmail }: { contactEmail?: string }) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
-  const [captchaDone, setCaptchaDone] = useState(false)
-  const recaptchaRef = useRef<ReCAPTCHA>(null)
-
-  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''
-  const web3Key = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? ''
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
+  const captchaRef = useRef<HCaptcha>(null)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    if (siteKey && !captchaDone) return
+    if (HCAPTCHA_SITE_KEY && !captchaToken) return
 
     const form = e.currentTarget
     const formData = new FormData(form)
@@ -25,9 +25,10 @@ export default function ContactForm({ contactEmail }: { contactEmail?: string })
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: web3Key,
+          access_key: WEB3_KEY,
           subject: 'New inquiry — Kairos Capital website',
           from_name: 'Kairos Capital Website',
+          'h-captcha-response': captchaToken,
           ...fields,
         }),
       })
@@ -35,8 +36,8 @@ export default function ContactForm({ contactEmail }: { contactEmail?: string })
       if (json.success) {
         setStatus('success')
         form.reset()
-        recaptchaRef.current?.reset()
-        setCaptchaDone(false)
+        captchaRef.current?.resetCaptcha()
+        setCaptchaToken(null)
       } else {
         setStatus('error')
       }
@@ -53,11 +54,10 @@ export default function ContactForm({ contactEmail }: { contactEmail?: string })
     )
   }
 
-  const canSubmit = status !== 'submitting' && (!siteKey || captchaDone)
+  const canSubmit = status !== 'submitting' && (!HCAPTCHA_SITE_KEY || !!captchaToken)
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
-      {/* Honeypot — additional bot protection */}
       <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} aria-hidden="true" />
 
       <div className="contact-row">
@@ -93,13 +93,13 @@ export default function ContactForm({ contactEmail }: { contactEmail?: string })
         />
       </div>
 
-      {siteKey && (
-        <ReCAPTCHA
-          ref={recaptchaRef}
-          sitekey={siteKey}
+      {HCAPTCHA_SITE_KEY && (
+        <HCaptcha
+          ref={captchaRef}
+          sitekey={HCAPTCHA_SITE_KEY}
           theme="dark"
-          onChange={(token) => setCaptchaDone(!!token)}
-          onExpired={() => setCaptchaDone(false)}
+          onVerify={(token) => setCaptchaToken(token)}
+          onExpire={() => setCaptchaToken(null)}
         />
       )}
 

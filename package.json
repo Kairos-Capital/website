@@ -9,6 +9,7 @@
     "tina": "tinacms dev"
   },
   "dependencies": {
+    "@hcaptcha/react-hcaptcha": "^2.1.0",
     "@lottiefiles/dotlottie-react": "^0.19.5",
     "gray-matter": "^4.0.3",
     "marked": "^15.0.0",
