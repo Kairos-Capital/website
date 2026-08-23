@@ -52,14 +52,6 @@ export default function FounderMessage() {
       <section className="founder-team-section">
         <div className="founder-section-inner founder-team-grid">
           <div className="founder-team-card">
-            <div className="founder-team-card-image">
-              <div className="founder-portrait-accent" />
-              <img
-                src="/founder-portrait.png"
-                alt="Richie Willard, Founder of Kairos Capital"
-                className="founder-portrait-img"
-              />
-            </div>
             <div className="founder-team-card-content">
               <h3 className="founder-name">Richie Willard</h3>
               <p className="founder-title">Founder</p>
@@ -78,14 +70,6 @@ export default function FounderMessage() {
             </div>
           </div>
           <div className="founder-team-card">
-            <div className="founder-team-card-image">
-              <div className="founder-portrait-accent" />
-              <img
-                src="/james-smith-portrait.png"
-                alt="James Smith, Advisor at Kairos Capital"
-                className="founder-portrait-img"
-              />
-            </div>
             <div className="founder-team-card-content">
               <h3 className="founder-name">James Smith</h3>
               <p className="founder-title">Operating Advisor</p>

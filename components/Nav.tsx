@@ -31,7 +31,7 @@ export default function Nav() {
           <li><a href="/#our-story">Who We Are</a></li>
           <li><a href="/#how">Our Process</a></li>
           <li><a href="/#criteria">Investment Criteria</a></li>
-          <li><a href="/founder-message">The Foundation</a></li>
+          <li><a href="/founder-message">Our Foundation</a></li>
           <li><a href="/#contact" className="nav-cta">Let's Talk!</a></li>
         </ul>
 
@@ -53,7 +53,7 @@ export default function Nav() {
             <li><a href="/#our-story" onClick={close}>Who We Are</a></li>
             <li><a href="/#how" onClick={close}>Our Process</a></li>
             <li><a href="/#criteria" onClick={close}>Investment Criteria</a></li>
-            <li><a href="/founder-message" onClick={close}>The Foundation</a></li>
+            <li><a href="/founder-message" onClick={close}>Our Foundation</a></li>
           </ul>
           <a href="/#contact" className="nav-cta nav-mobile-cta" onClick={close}>
             Let's Talk!
