@@ -3,7 +3,8 @@
 import { useState, useRef } from 'react'
 import HCaptcha from '@hcaptcha/react-hcaptcha'
 
-const HCAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY ?? ''
+// Web3Forms provided sitekey for free hCaptcha integration
+const HCAPTCHA_SITE_KEY = '50b2fe65-b00b-4b9e-ad62-3ba471098be2'
 const WEB3_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? ''
 
 export default function ContactForm({ contactEmail }: { contactEmail?: string }) {
@@ -54,7 +55,7 @@ export default function ContactForm({ contactEmail }: { contactEmail?: string })
     )
   }
 
-  const canSubmit = status !== 'submitting' && (!HCAPTCHA_SITE_KEY || !!captchaToken)
+  const canSubmit = status !== 'submitting' && !!captchaToken
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
@@ -93,15 +94,14 @@ export default function ContactForm({ contactEmail }: { contactEmail?: string })
         />
       </div>
 
-      {HCAPTCHA_SITE_KEY && (
-        <HCaptcha
-          ref={captchaRef}
-          sitekey={HCAPTCHA_SITE_KEY}
-          theme="dark"
-          onVerify={(token) => setCaptchaToken(token)}
-          onExpire={() => setCaptchaToken(null)}
-        />
-      )}
+      <HCaptcha
+        ref={captchaRef}
+        sitekey={HCAPTCHA_SITE_KEY}
+        reCaptchaCompat={false}
+        theme="dark"
+        onVerify={(token) => setCaptchaToken(token)}
+        onExpire={() => setCaptchaToken(null)}
+      />
 
       <button type="submit" className="btn-primary contact-submit" disabled={!canSubmit}>
         {status === 'submitting' ? 'Sending…' : 'Send Message'}
